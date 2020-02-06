@@ -1,33 +1,30 @@
 import React from "react"
 import { Link } from "gatsby"
 import { createGlobalStyle } from "styled-components"
+import { Header } from "./elements"
+import { Wrapper } from "./elements"
+import { LogoContainer } from "./elements"
+import Logo from "../../content/assets/logo.svg"
 
 export class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+    const { children } = this.props
+    // const rootPath = `${__PATH_PREFIX__}/`
 
     let header
 
-    if (location.pathname === rootPath) {
-      header = (
-        <>
-          <h1>
-            <Link to={`/`}>{title}</Link>
-          </h1>
-        </>
-      )
-    } else {
-      header = (
-        <>
-          <h3 style={{}}>
-            <Link style={{}} to={`/`}>
-              {title}
-            </Link>
-          </h3>
-        </>
-      )
-    }
+    header = (
+      <Header>
+        <Wrapper>
+          <Link to={`/`}>
+            <LogoContainer>
+              <Logo />
+            </LogoContainer>
+          </Link>
+        </Wrapper>
+      </Header>
+    )
+
     return (
       <>
         <GlobalStyle />
@@ -42,9 +39,12 @@ export class Layout extends React.Component {
 }
 
 const GlobalStyle = createGlobalStyle`
-  body {
+html{
+  background-color: #fef9e4;
+}
+
+body {
     color:#000000;
-    background-color: #fef9e4;
   }
   a{
     color:inherit;
@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
   p{
     margin: 0;
   }
+
 
 `
 

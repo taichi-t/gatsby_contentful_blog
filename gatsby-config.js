@@ -88,7 +88,14 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
     `@contentful/gatsby-transformer-contentful-richtext`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
