@@ -6,14 +6,12 @@ import styled from "styled-components"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 const Post = styled.div`
   display: flex;
 `
 const PostImage = styled.div`
   flex: 25%;
-  margin-right: 1rem;
 `
 
 const PostText = styled.div`
@@ -38,13 +36,8 @@ class BlogIndex extends React.Component {
               </PostImage>
               <PostText>
                 <header>
-                  <h3
-                    style={{
-                      marginTop: 0,
-                      marginBottom: rhythm(1 / 4),
-                    }}
-                  >
-                    <Link style={{ boxShadow: `none` }} to={node.slug}>
+                  <h3>
+                    <Link style={{}} to={node.slug}>
                       {title}
                     </Link>
                   </h3>

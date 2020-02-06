@@ -1,17 +1,16 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 class BlogPostContentfulTemplate extends React.Component {
   render() {
     const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    // const { previous, next } = this.props.pageContext //　次に読む記事のprops
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -19,30 +18,19 @@ class BlogPostContentfulTemplate extends React.Component {
         <Img fluid={post.image.fluid} />
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.title}
-            </h1>
+            <h1 style={{}}>{post.title}</h1>
           </header>
           <section
             dangerouslySetInnerHTML={{
               __html: post.content.childContentfulRichText.html,
             }}
           />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
+          <hr style={{}} />
           <footer>
             <Bio />
           </footer>
         </article>
-        <nav>
+        {/* <nav>
           <ul
             style={{
               display: `flex`,
@@ -67,7 +55,7 @@ class BlogPostContentfulTemplate extends React.Component {
               )}
             </li>
           </ul>
-        </nav>
+        </nav> */}
       </Layout>
     )
   }
