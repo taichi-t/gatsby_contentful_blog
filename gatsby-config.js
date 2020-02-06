@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog with Contentful`,
+    title: `バンハンター`,
     author: `Taichi Tsujioka`,
     description: `A starter blog demonstrating what Gatsby and Contentful can do.`,
     // siteUrl: ``,
@@ -15,13 +15,13 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/blog`,
+    //     name: `blog`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -69,7 +69,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/profile-pic.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
