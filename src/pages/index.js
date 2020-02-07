@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -19,14 +18,15 @@ const PostText = styled.div`
 `
 class BlogIndex extends React.Component {
   render() {
+    console.log(this.props)
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} articles={posts}>
         <SEO title="All posts" />
-        <Bio />
+
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (

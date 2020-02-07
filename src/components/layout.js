@@ -1,66 +1,46 @@
 import React from "react"
-import { Link } from "gatsby"
-import { createGlobalStyle } from "styled-components"
-import { Header } from "./elements"
-import { Wrapper } from "./elements"
-import { LogoContainer } from "./elements"
-import Logo from "../../content/assets/logo.svg"
+
+import Grid from "@material-ui/core/Grid"
+
+//elemetns
+import { Wrapper } from "./elements/elements"
+import Aside from "./elements/Aside"
+import Recomendations from "./elements/Recomendations"
+import { GlobalStyle } from "./elements/elements"
+import Header from "./elements/Header"
 
 export class Layout extends React.Component {
   render() {
     const { children } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
-
-    let header
-
-    header = (
-      <Header>
-        <Wrapper>
-          <Link to={`/`}>
-            <LogoContainer>
-              <Logo />
-            </LogoContainer>
-          </Link>
-        </Wrapper>
-      </Header>
-    )
-
+    console.log()
     return (
       <>
         <GlobalStyle />
-        <div style={{}}>
-          <header>{header}</header>
-          <main>{children}</main>
+        <header>
+          <Header />
+        </header>
+        <Wrapper top={60}>
+          <Grid container spacing={4}>
+            <Grid item xs={8}>
+              <main>
+                <nav></nav>
+                {children}
+              </main>
+            </Grid>
+            <Grid item xs={4}>
+              <aside>
+                <Aside />
+                <Recomendations articles={this.props.articles} />
+              </aside>
+            </Grid>
+          </Grid>
+
           <footer></footer>
-        </div>
+        </Wrapper>
       </>
     )
   }
 }
-
-const GlobalStyle = createGlobalStyle`
-html{
-  background-color: #fef9e4;
-}
-
-body {
-    color:#000000;
-  }
-  a{
-    color:inherit;
-    text-decoration:none
-  }
-  h3{
-    margin: 0;
-  }
-  h1{
-    margin: 0;
-  }
-  p{
-    margin: 0;
-  }
-
-
-`
 
 export default Layout

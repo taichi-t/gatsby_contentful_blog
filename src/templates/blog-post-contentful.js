@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import Bio from "../components/bio"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -25,10 +25,9 @@ class BlogPostContentfulTemplate extends React.Component {
               __html: post.content.childContentfulRichText.html,
             }}
           />
+
           <hr style={{}} />
-          <footer>
-            <Bio />
-          </footer>
+          <footer></footer>
         </article>
         {/* <nav>
           <ul
