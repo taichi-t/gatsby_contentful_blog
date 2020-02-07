@@ -11,7 +11,6 @@ import Image from "gatsby-image"
 import styled from "styled-components"
 import { Button } from "./elements"
 import { InstaButton } from "./elements"
-import { Link } from "gatsby"
 
 const Aside = () => {
   const data = useStaticQuery(graphql`
@@ -30,11 +29,14 @@ const Aside = () => {
           description
           social {
             twitter
+            instagram
+            github
           }
         }
       }
     }
   `)
+  console.log(data.site.siteMetadata.social.twitter)
 
   return (
     <AsideContainer>
@@ -54,10 +56,18 @@ const Aside = () => {
       </AvatarContainer>
       <MeDiscription>{data.site.siteMetadata.description}</MeDiscription>
       <ButtonContainer>
-        <Link>
+        <a
+          href={`https://twitter.com/${data.site.siteMetadata.social.twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button bgc="#00ACEE">ツイッター</Button>
-        </Link>
-        <Link>
+        </a>
+        <a
+          href={`https://www.instagram.com/${data.site.siteMetadata.social.instagram}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <InstaButton>
             <p
               style={{
@@ -67,10 +77,14 @@ const Aside = () => {
               インスタグラム
             </p>
           </InstaButton>
-        </Link>
-        <Link>
+        </a>
+        <a
+          href={`https://github.com/${data.site.siteMetadata.social.github}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button bgc="#171515">Git Hub</Button>
-        </Link>
+        </a>
       </ButtonContainer>
     </AsideContainer>
   )

@@ -13,7 +13,8 @@ module.exports = {
     // siteUrl: ``,
     social: {
       twitter: `EndTaichi`,
-      insragram: `nabagibasan`,
+      instagram: `nabagibasan`,
+      github: `taichi-t`,
     },
   },
   plugins: [
@@ -36,6 +37,13 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow",
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
@@ -47,6 +55,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
