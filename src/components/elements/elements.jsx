@@ -87,7 +87,7 @@ export const InstaButton = styled.div`
   }
   &:hover {
     transform: translateX(5px) translateY(5px);
-    transition: 0.1s;
+    /* transition: 0.1s; */
     box-shadow: none;
   }
 `

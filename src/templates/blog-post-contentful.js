@@ -33,7 +33,6 @@ class BlogPostContentfulTemplate extends React.Component {
               __html: post.content.childContentfulRichText.html,
             }}
           />
-
           <hr style={{}} />
           <footer></footer>
         </article>
