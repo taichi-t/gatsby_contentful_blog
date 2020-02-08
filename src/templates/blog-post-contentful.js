@@ -13,11 +13,15 @@ class BlogPostContentfulTemplate extends React.Component {
     const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    const { previous, next } = this.props.pageContext //　次に読む記事のprops
-    console.log(previous, next)
+    // const { previous, next } = this.props.pageContext //　次に読む記事のprops
+    // console.log(previous, next)
 
     return (
-      <Layout location={this.props.location} title={siteTitle} post>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        articles={articles}
+      >
         <SEO title={post.title} description={post.subtitle} />
         <Img fluid={post.image.fluid} />
         <article>
@@ -94,6 +98,8 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          author
+          slug
         }
       }
     }

@@ -11,7 +11,10 @@ import Header from "./elements/Header"
 
 export class Layout extends React.Component {
   render() {
+    console.log(this.props)
     const { children } = this.props
+    console.log(this.props)
+
     // const rootPath = `${__PATH_PREFIX__}/`
 
     return (

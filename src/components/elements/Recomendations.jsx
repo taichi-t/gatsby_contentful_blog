@@ -19,11 +19,13 @@ const Recomendations = articles => {
         <h2>オススメ</h2>
       </Title>
       {posts &&
-        posts.map(({ node }) => {
+        posts.map(({ node }, index) => {
           const title = node.title || node.slug
           return (
-            <RecomendationsList key={node.slug}>
-              <Link to={node.slug}>{title}</Link>
+            <RecomendationsList key={index}>
+              <Link to={node.slug} key={index}>
+                {title}
+              </Link>
             </RecomendationsList>
           )
         })}
