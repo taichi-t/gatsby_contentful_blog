@@ -18,8 +18,8 @@ const PostText = styled.div`
 `
 class BlogIndex extends React.Component {
   render() {
-    console.log(this.props)
     const { data } = this.props
+    console.log(data)
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
 

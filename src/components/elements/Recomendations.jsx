@@ -12,7 +12,7 @@ import styled from "styled-components"
 
 const Recomendations = articles => {
   const posts = articles.articles
-  console.log(posts)
+
   return (
     <RecomendationsContainer>
       <Title>

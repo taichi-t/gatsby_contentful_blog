@@ -36,7 +36,6 @@ const Aside = () => {
       }
     }
   `)
-  console.log(data.site.siteMetadata.social.twitter)
 
   return (
     <AsideContainer>
