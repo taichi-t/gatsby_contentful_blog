@@ -60,7 +60,17 @@ const Aside = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button bgc="#00ACEE">ツイッター</Button>
+          <Button
+            bgc="#00ACEE"
+            color="#ffffff"
+            shadow="true"
+            border="true"
+            activeBgc="#00ACEE"
+            activeColor="#ffffff"
+            transform="true"
+          >
+            ツイッター
+          </Button>
         </a>
         <a
           href={`https://www.instagram.com/${data.site.siteMetadata.social.instagram}`}
@@ -82,7 +92,17 @@ const Aside = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button bgc="#171515">Git Hub</Button>
+          <Button
+            bgc="#171515"
+            color="#ffffff"
+            shadow="true"
+            border="true"
+            activeBgc="#171515"
+            activeColor="#ffffff"
+            transform="true"
+          >
+            Git Hub
+          </Button>
         </a>
       </ButtonContainer>
     </AsideContainer>

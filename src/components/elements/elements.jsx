@@ -44,19 +44,27 @@ export const Wrapper = styled.div`
 
 export const Button = styled.div`
   position: relative;
-  border: 1px solid #1c2d5e;
+  border: ${props => (props.border === "true" ? "1px solid #1c2d5e" : "none")};
+
   text-align: center;
   padding: 0 4px;
   line-height: 38px;
-  color: #ffffff;
+  color: ${props => props.color};
   width: auto;
   height: 38px;
   background-color: ${props => props.bgc};
-  -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.25);
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: ${props =>
+    props.shadow === "true" ? "5px 5px 0px 0px rgba(0, 0, 0, 0.25)" : "none"};
+  -moz-box-shadow: ${props =>
+    props.shadow === "true" ? "5px 5px 0px 0px rgba(0, 0, 0, 0.25)" : "none"};
+  box-shadow: ${props =>
+    props.shadow === "true" ? "5px 5px 0px 0px rgba(0, 0, 0, 0.25)" : "none"};
+
   &:hover {
-    transform: translateX(5px) translateY(5px);
+    background-color: ${props => props.activeBgc};
+    color: ${props => props.activeColor};
+    transform: ${props =>
+      props.transform === "true" ? "translateX(5px) translateY(5px)" : "none"};
     transition: 0.1s;
     box-shadow: none;
   }
@@ -87,7 +95,7 @@ export const InstaButton = styled.div`
   }
   &:hover {
     transform: translateX(5px) translateY(5px);
-    /* transition: 0.1s; */
+    transition: 0.1s;
     box-shadow: none;
   }
 `

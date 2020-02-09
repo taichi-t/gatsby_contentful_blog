@@ -8,12 +8,11 @@ import Aside from "./elements/Aside"
 import Recomendations from "./elements/Recomendations"
 import { GlobalStyle } from "./elements/elements"
 import Header from "./elements/Header"
+import NavBar from "./elements/NavBar"
 
 export class Layout extends React.Component {
   render() {
-    console.log(this.props)
     const { children } = this.props
-    console.log(this.props)
 
     // const rootPath = `${__PATH_PREFIX__}/`
 
@@ -27,7 +26,9 @@ export class Layout extends React.Component {
           <Grid container spacing={4}>
             <Grid item xs={8}>
               <main>
-                <nav></nav>
+                <nav>
+                  <NavBar />
+                </nav>
                 {children}
               </main>
             </Grid>

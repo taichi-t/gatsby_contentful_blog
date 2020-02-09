@@ -6,20 +6,9 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Post = styled.div`
-  display: flex;
-`
-const PostImage = styled.div`
-  flex: 25%;
-`
-
-const PostText = styled.div`
-  flex: 75%;
-`
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    console.log(data)
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
 
@@ -79,4 +68,15 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const Post = styled.div`
+  display: flex;
+`
+const PostImage = styled.div`
+  flex: 25%;
+`
+
+const PostText = styled.div`
+  flex: 75%;
 `
