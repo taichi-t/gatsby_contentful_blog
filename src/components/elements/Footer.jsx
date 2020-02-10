@@ -18,7 +18,7 @@ const FooterContainer = styled.div`
 `
 
 const Line = styled.hr`
-  border: 1px solid #bfbfbf;
+  color: #bfbfbf;
 `
 
 const FooterText = styled.p`
