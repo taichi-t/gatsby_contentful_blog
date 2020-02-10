@@ -33,6 +33,7 @@ class BlogIndex extends React.Component {
                 </header>
                 <section>
                   <p>{node.subtitle}</p>
+                  <p>{node.date}</p>
                 </section>
               </PostText>
             </Post>
@@ -52,11 +53,12 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost {
+    allContentfulPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
           title
           subtitle
+          date(formatString: "YYYY.MM.DD")
           image {
             fluid {
               ...GatsbyContentfulFluid

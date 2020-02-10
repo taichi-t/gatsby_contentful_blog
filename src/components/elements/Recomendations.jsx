@@ -12,14 +12,16 @@ import styled from "styled-components"
 
 const Recomendations = articles => {
   const posts = articles.articles
+  const limitsPosts = posts.slice(0, 4)
+  console.log(limitsPosts)
 
   return (
     <RecomendationsContainer>
       <Title>
         <h2>オススメ</h2>
       </Title>
-      {posts &&
-        posts.map(({ node }, index) => {
+      {limitsPosts &&
+        limitsPosts.map(({ node }, index) => {
           const title = node.title || node.slug
           return (
             <RecomendationsList key={index}>
