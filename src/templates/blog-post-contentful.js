@@ -8,13 +8,11 @@ import SEO from "../components/seo"
 
 class BlogPostContentfulTemplate extends React.Component {
   render() {
-    console.log(this.props.data.allContentfulPost.edges)
     const articles = this.props.data.allContentfulPost.edges
     const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
 
     // const { previous, next } = this.props.pageContext //　次に読む記事のprops
-    // console.log(previous, next)
 
     return (
       <Layout

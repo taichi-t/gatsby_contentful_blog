@@ -59,6 +59,12 @@ export const Button = styled.div`
     props.shadow === "true" ? "5px 5px 0px 0px rgba(0, 0, 0, 0.25)" : "none"};
   box-shadow: ${props =>
     props.shadow === "true" ? "5px 5px 0px 0px rgba(0, 0, 0, 0.25)" : "none"};
+  ${({ isActive }) =>
+    isActive &&
+    `
+      color: #ffffff;
+      background: #000000;
+  `}
 
   &:hover {
     background-color: ${props => props.activeBgc};

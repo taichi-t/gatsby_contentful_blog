@@ -27,7 +27,7 @@ export class Layout extends React.Component {
             <Grid item xs={8}>
               <main>
                 <nav>
-                  <NavBar />
+                  <NavBar path={this.props.location.pathname} />
                 </nav>
                 {children}
               </main>

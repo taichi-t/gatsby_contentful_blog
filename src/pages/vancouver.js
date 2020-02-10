@@ -6,7 +6,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class BlogIndex extends React.Component {
+class VancouverArticles extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -14,8 +14,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle} articles={posts}>
-        <SEO title="New posts" />
-
+        <SEO title="vancouver" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
@@ -26,9 +25,7 @@ class BlogIndex extends React.Component {
               <PostText>
                 <header>
                   <h3>
-                    <Link style={{}} to={`/${node.slug}`}>
-                      {title}
-                    </Link>
+                    <Link to={`/${node.slug}`}>{title}</Link>
                   </h3>
                 </header>
                 <section>
@@ -43,7 +40,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default VancouverArticles
 
 export const pageQuery = graphql`
   query {
@@ -52,7 +49,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost {
+    allContentfulPost(filter: { category: { eq: "vancouver" } }, limit: 10) {
       edges {
         node {
           title
@@ -62,6 +59,7 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          category
           author
           slug
         }

@@ -23,7 +23,7 @@ const Recomendations = articles => {
           const title = node.title || node.slug
           return (
             <RecomendationsList key={index}>
-              <Link to={node.slug} key={index}>
+              <Link to={`/${node.slug}`} key={index}>
                 {title}
               </Link>
             </RecomendationsList>
