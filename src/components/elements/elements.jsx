@@ -105,3 +105,35 @@ export const InstaButton = styled.div`
     box-shadow: none;
   }
 `
+
+//blog-post
+
+export const Post = styled.div`
+  display: flex;
+  margin-bottom: 32px;
+  border: 2px solid #1c2d5e;
+  background-color: #fffdf7;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+`
+export const PostImage = styled.div`
+  object-fit: contain;
+  width: 30%;
+`
+export const PostText = styled.div`
+  position: relative;
+  width: 70%;
+  margin-left: 20px;
+`
+
+export const PostTitle = styled.h3`
+  font-size: 25px;
+  padding-top: 32px;
+`
+
+export const PostDiscription = styled.div`
+  position: absolute;
+  font-size: 16px;
+  bottom: 32px;
+`

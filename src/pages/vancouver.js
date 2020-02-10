@@ -1,7 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import styled from "styled-components"
+
+//elements
+import { Post } from "../components/elements/elements"
+import { PostImage } from "../components/elements/elements"
+import { PostText } from "../components/elements/elements"
+import { PostTitle } from "../components/elements/elements"
+import { PostDiscription } from "../components/elements/elements"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,21 +24,24 @@ class VancouverArticles extends React.Component {
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
-            <Post key={node.slug}>
-              <PostImage>
-                <Img fluid={node.image.fluid} />
-              </PostImage>
-              <PostText>
-                <header>
-                  <h3>
-                    <Link to={`/${node.slug}`}>{title}</Link>
-                  </h3>
-                </header>
-                <section>
-                  <p>{node.subtitle}</p>
-                </section>
-              </PostText>
-            </Post>
+            <Link style={{}} to={`/${node.slug}`}>
+              <Post key={node.slug}>
+                <PostImage>
+                  <Img fluid={node.image.fluid} object />
+                </PostImage>
+                <PostText>
+                  <header>
+                    <PostTitle>{title}</PostTitle>
+                  </header>
+                  <section>
+                    <PostDiscription>
+                      <p>{node.date}</p>
+                      <p>#{node.category}</p>
+                    </PostDiscription>
+                  </section>
+                </PostText>
+              </Post>
+            </Link>
           )
         })}
       </Layout>
@@ -53,28 +62,18 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          subtitle
+          category
+          date(formatString: "YYYY.MM.DD")
           image {
-            fluid {
+            fluid(maxWidth: 220, maxHeight: 220) {
               ...GatsbyContentfulFluid
             }
           }
-          category
+
           author
           slug
         }
       }
     }
   }
-`
-
-const Post = styled.div`
-  display: flex;
-`
-const PostImage = styled.div`
-  flex: 25%;
-`
-
-const PostText = styled.div`
-  flex: 75%;
 `

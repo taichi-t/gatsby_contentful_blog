@@ -9,6 +9,7 @@ import Recomendations from "./elements/Recomendations"
 import { GlobalStyle } from "./elements/elements"
 import Header from "./elements/Header"
 import NavBar from "./elements/NavBar"
+import Footer from "./elements/Footer"
 
 export class Layout extends React.Component {
   render() {
@@ -40,7 +41,9 @@ export class Layout extends React.Component {
             </Grid>
           </Grid>
 
-          <footer></footer>
+          <footer>
+            <Footer />
+          </footer>
         </Wrapper>
       </>
     )
