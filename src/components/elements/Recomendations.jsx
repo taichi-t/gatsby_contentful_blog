@@ -13,7 +13,6 @@ import styled from "styled-components"
 const Recomendations = articles => {
   const posts = articles.articles
   const limitsPosts = posts.slice(0, 4)
-  console.log(limitsPosts)
 
   return (
     <RecomendationsContainer>
