@@ -24,8 +24,8 @@ class TechArticles extends React.Component {
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
-            <Link style={{}} to={`/${node.slug}`}>
-              <Post key={node.slug}>
+            <Link style={{}} to={`/${node.slug}`} key={node.slug}>
+              <Post>
                 <PostImage>
                   <Img fluid={node.image.fluid} object />
                 </PostImage>

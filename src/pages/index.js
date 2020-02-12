@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { IncrementViewCount } from "../utils/common.js"
 
 //elements
 import { Post } from "../components/elements/elements"
@@ -11,6 +12,8 @@ import { PostDiscription } from "../components/elements/elements"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+IncrementViewCount("5SGpySu9rFjNmaEJk3a3e9", 1)
 
 class BlogIndex extends React.Component {
   render() {
@@ -72,6 +75,9 @@ export const pageQuery = graphql`
           }
           author
           slug
+          counter {
+            counter
+          }
         }
       }
     }

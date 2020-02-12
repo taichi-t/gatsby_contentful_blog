@@ -23,8 +23,8 @@ class MusicArticle extends React.Component {
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
-            <Link to={`/${node.slug}`}>
-              <Post key={node.slug}>
+            <Link to={`/${node.slug}`} key={node.slug}>
+              <Post>
                 <PostImage>
                   <Img fluid={node.image.fluid} />
                 </PostImage>
