@@ -13,13 +13,18 @@ import { PostDiscription } from "../components/elements/elements"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-IncrementViewCount("5SGpySu9rFjNmaEJk3a3e9", 1)
-
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
+
+    const handleClick = e => {
+      const entryId = e.currentTarget.getAttribute("data-id")
+      const prevCount = e.currentTarget.getAttribute("data-count")
+      console.log(prevCount)
+      IncrementViewCount(entryId, prevCount)
+    }
 
     return (
       <Layout location={this.props.location} title={siteTitle} articles={posts}>
@@ -27,11 +32,18 @@ class BlogIndex extends React.Component {
 
         {posts.map(({ node }) => {
           const title = node.title || node.slug
+
           return (
-            <Link style={{}} to={`/${node.slug}`} key={node.slug}>
+            <Link
+              to={`/${node.slug}`}
+              key={node.slug}
+              data-id={node.contentful_id}
+              data-count={node.counter["counter"]}
+              onClick={handleClick}
+            >
               <Post>
                 <PostImage>
-                  <Img fluid={node.image.fluid} object />
+                  <Img fluid={node.image.fluid} />
                 </PostImage>
                 <PostText>
                   <header>
@@ -78,6 +90,7 @@ export const pageQuery = graphql`
           counter {
             counter
           }
+          contentful_id
         }
       }
     }
