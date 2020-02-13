@@ -12,6 +12,16 @@ import styled from "styled-components"
 
 const Recomendations = articles => {
   const posts = articles.articles
+
+  posts.sort((a, b) => {
+    const views = a.node.counter["counter"]
+    const viewsPivot = b.node.counter["counter"]
+
+    if (views > viewsPivot) return -1
+    if (views < viewsPivot) return 1
+    return 0
+  })
+
   const limitsPosts = posts.slice(0, 4)
 
   return (
@@ -24,7 +34,11 @@ const Recomendations = articles => {
           const title = node.title || node.slug
           return (
             <RecomendationsList key={index}>
-              <Link to={`/${node.slug}`} key={index}>
+              <Link
+                to={`/${node.slug}`}
+                key={index}
+                views={node.counter["counter"]}
+              >
                 {title}
               </Link>
             </RecomendationsList>
