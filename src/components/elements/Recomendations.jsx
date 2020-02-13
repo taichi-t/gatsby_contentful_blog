@@ -7,11 +7,17 @@
 
 import React from "react"
 import { Link } from "gatsby"
-
+import { IncrementViewCount } from "../../utils/common"
 import styled from "styled-components"
 
 const Recomendations = articles => {
   const posts = articles.articles
+
+  const handleClick = e => {
+    const entryId = e.currentTarget.getAttribute("data-id")
+    const prevCount = e.currentTarget.getAttribute("data-count")
+    IncrementViewCount(entryId, prevCount)
+  }
 
   posts.sort((a, b) => {
     const views = a.node.counter["counter"]
@@ -33,15 +39,15 @@ const Recomendations = articles => {
         limitsPosts.map(({ node }, index) => {
           const title = node.title || node.slug
           return (
-            <RecomendationsList key={index}>
-              <Link
-                to={`/${node.slug}`}
-                key={index}
-                views={node.counter["counter"]}
-              >
-                {title}
-              </Link>
-            </RecomendationsList>
+            <Link
+              to={`/${node.slug}`}
+              key={index}
+              data-id={node.contentful_id}
+              data-count={node.counter["counter"]}
+              onClick={handleClick}
+            >
+              <RecomendationsList key={index}>{title}</RecomendationsList>
+            </Link>
           )
         })}
     </RecomendationsContainer>

@@ -12,8 +12,6 @@ class BlogPostContentfulTemplate extends React.Component {
     const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    // const { previous, next } = this.props.pageContext //　次に読む記事のprops
-
     return (
       <Layout
         location={this.props.location}
@@ -31,7 +29,7 @@ class BlogPostContentfulTemplate extends React.Component {
               __html: post.content.childContentfulRichText.html,
             }}
           />
-          <hr style={{}} />
+          <hr />
           <footer></footer>
         </article>
         {/* <nav>
@@ -97,6 +95,10 @@ export const pageQuery = graphql`
           title
           author
           slug
+          counter {
+            counter
+          }
+          contentful_id
         }
       }
     }

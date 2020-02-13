@@ -14,7 +14,6 @@ import Footer from "./elements/Footer"
 export class Layout extends React.Component {
   render() {
     const { children } = this.props
-    console.log(this.props)
 
     // const rootPath = `${__PATH_PREFIX__}/`
 

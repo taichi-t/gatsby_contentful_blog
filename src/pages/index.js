@@ -22,7 +22,6 @@ class BlogIndex extends React.Component {
     const handleClick = e => {
       const entryId = e.currentTarget.getAttribute("data-id")
       const prevCount = e.currentTarget.getAttribute("data-count")
-      console.log(prevCount)
       IncrementViewCount(entryId, prevCount)
     }
 
