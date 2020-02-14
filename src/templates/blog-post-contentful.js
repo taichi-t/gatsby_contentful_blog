@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import styled from "styled-components"
+import postContentStyle from "./post-style/postContentStyle"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -19,49 +20,61 @@ class BlogPostContentfulTemplate extends React.Component {
         articles={articles}
       >
         <SEO title={post.title} description={post.subtitle} />
-        <Img fluid={post.image.fluid} />
+
         <article>
-          <header>
-            <h1 style={{}}>{post.title}</h1>
-          </header>
-          <section
-            dangerouslySetInnerHTML={{
-              __html: post.content.childContentfulRichText.html,
-            }}
-          />
-          <hr />
-          <footer></footer>
+          <ArticleContaienr>
+            <header>
+              <PostTitle>{post.title}</PostTitle>
+              <PostDiscription>{post.date}</PostDiscription>
+              <PostDiscription>#{post.category}</PostDiscription>
+            </header>
+
+            <section>
+              <PostContent
+                dangerouslySetInnerHTML={{
+                  __html: post.longText.childMarkdownRemark.html,
+                }}
+              ></PostContent>
+            </section>
+
+            <hr />
+          </ArticleContaienr>
         </article>
-        {/* <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.slug} rel="prev">
-                  ← {previous.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.slug} rel="next">
-                  {next.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav> */}
       </Layout>
     )
   }
 }
+
+const PostContent = styled.div`
+  ${postContentStyle}
+`
+
+const ArticleContaienr = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  background-color: #fffdf7;
+  border: 1px solid #bbc0cf;
+  -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
+`
+
+const PostTitle = styled.h1`
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 24px;
+`
+
+const PostDiscription = styled.h2`
+  font-size: 16px;
+  color: #000000;
+  opacity: 0.5;
+  padding-bottom: 16px;
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+`
 
 export default BlogPostContentfulTemplate
 
@@ -78,16 +91,13 @@ export const pageQuery = graphql`
       title
       subtitle
       author
-      image {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
-      }
-      content {
-        childContentfulRichText {
+      longText {
+        childMarkdownRemark {
           html
         }
       }
+      date(formatString: "YYYY.MM.DD")
+      category
     }
     allContentfulPost {
       edges {
