@@ -13,27 +13,26 @@ import { PostDiscription } from "../components/elements/elements"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class BlogIndex extends React.Component {
+class VancouverArticles extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
-
     const handleClick = e => {
       const entryId = e.currentTarget.getAttribute("data-id")
       const prevCount = e.currentTarget.getAttribute("data-count")
+      console.log(prevCount)
       IncrementViewCount(entryId, prevCount)
     }
 
     return (
       <Layout location={this.props.location} title={siteTitle} articles={posts}>
-        <SEO title="New posts" />
-
+        <SEO title="vancouver" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
-
           return (
             <Link
+              style={{}}
               to={`/${node.slug}`}
               key={node.slug}
               data-id={node.contentful_id}
@@ -64,7 +63,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default VancouverArticles
 
 export const pageQuery = graphql`
   query {
@@ -73,7 +72,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(sort: { order: DESC, fields: date }) {
+    allContentfulPost(filter: { category: { eq: "バンクーバー" } }, limit: 10) {
       edges {
         node {
           title
@@ -84,11 +83,11 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          author
-          slug
           counter {
             counter
           }
+          author
+          slug
           contentful_id
         }
       }

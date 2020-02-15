@@ -1,17 +1,30 @@
 const path = require(`path`)
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: "empty",
+    },
+  })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post-contentful.js`)
+  const categoryVancouver = path.resolve(`./src/pages/vancouver.js`)
+  const categoryTech = path.resolve(`./src/pages/tech.js`)
+  const categoryMusic = path.resolve(`./src/pages/music.js`)
   const result = await graphql(
     `
       {
         allContentfulPost {
           edges {
             node {
-              slug
               title
+              subtitle
+              author
+              slug
             }
           }
         }
@@ -38,6 +51,18 @@ exports.createPages = async ({ graphql, actions }) => {
         previous,
         next,
       },
+    })
+    createPage({
+      path: "/category/vancouver",
+      component: categoryVancouver,
+    })
+    createPage({
+      path: "/category/tech",
+      component: categoryTech,
+    })
+    createPage({
+      path: "/category/music",
+      component: categoryMusic,
     })
   })
 }

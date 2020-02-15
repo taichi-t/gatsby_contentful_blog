@@ -1,73 +1,51 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
+import Grid from "@material-ui/core/Grid"
 
-class Layout extends React.Component {
+//elemetns
+import { Wrapper } from "./elements/elements"
+import Aside from "./elements/Aside"
+import Recomendations from "./elements/Recomendations"
+import { GlobalStyle } from "./elements/elements"
+import Header from "./elements/Header"
+import NavBar from "./elements/NavBar"
+import Footer from "./elements/Footer"
+
+export class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { children } = this.props
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
+    // const rootPath = `${__PATH_PREFIX__}/`
+
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <>
+        <GlobalStyle />
+        <header>
+          <Header />
+        </header>
+        <Wrapper top={60}>
+          <Grid container spacing={4}>
+            <Grid item xs={8}>
+              <main>
+                <nav>
+                  <NavBar path={this.props.location.pathname} />
+                </nav>
+                {children}
+              </main>
+            </Grid>
+            <Grid item xs={4}>
+              <aside>
+                <Aside />
+                <Recomendations articles={this.props.articles} />
+              </aside>
+            </Grid>
+          </Grid>
+
+          <footer>
+            <Footer />
+          </footer>
+        </Wrapper>
+      </>
     )
   }
 }

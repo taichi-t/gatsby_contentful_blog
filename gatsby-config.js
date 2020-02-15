@@ -6,22 +6,25 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog with Contentful`,
-    author: `Taichi Tsujioka`,
-    description: `A starter blog demonstrating what Gatsby and Contentful can do.`,
+    title: `バンハンター`,
+    author: `盆地デベロッパー`,
+    description: `バンクーバーのウェブ系カレッジで一から ウェブを学ぶ人。
+    現地の生活や、テック系や、 趣味を発信しようと思います`,
     // siteUrl: ``,
     social: {
       twitter: `EndTaichi`,
+      instagram: `nabagibasan`,
+      github: `taichi-t`,
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/blog`,
+    //     name: `blog`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,6 +36,61 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-code-titles`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+
+              inlineCodeMarker: null,
+
+              aliases: {},
+
+              showLineNumbers: false,
+
+              noInlineHighlight: false,
+
+              languageExtensions: [
+                {
+                  language: "superscript",
+                  extend: "javascript",
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
+              ],
+
+              prompt: {
+                user: "root",
+                host: "localhost",
+                global: false,
+              },
+
+              scapeEntities: {},
+            },
+          },
+
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow",
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -69,10 +127,11 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/profile-pic.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -83,11 +142,18 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `nwdyo7rxqvgg`,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.GATSBY_SPACE_ID,
+        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
-
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
     `@contentful/gatsby-transformer-contentful-richtext`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,6 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { IncrementViewCount } from "../utils/common.js"
 
 //elements
@@ -10,10 +12,7 @@ import { PostText } from "../components/elements/elements"
 import { PostTitle } from "../components/elements/elements"
 import { PostDiscription } from "../components/elements/elements"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-class BlogIndex extends React.Component {
+class MusicArticle extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -22,16 +21,15 @@ class BlogIndex extends React.Component {
     const handleClick = e => {
       const entryId = e.currentTarget.getAttribute("data-id")
       const prevCount = e.currentTarget.getAttribute("data-count")
+      console.log(prevCount)
       IncrementViewCount(entryId, prevCount)
     }
 
     return (
       <Layout location={this.props.location} title={siteTitle} articles={posts}>
-        <SEO title="New posts" />
-
+        <SEO title="music" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
-
           return (
             <Link
               to={`/${node.slug}`}
@@ -64,7 +62,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default MusicArticle
 
 export const pageQuery = graphql`
   query {
@@ -73,7 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(sort: { order: DESC, fields: date }) {
+    allContentfulPost(filter: { category: { eq: "音楽" } }, limit: 10) {
       edges {
         node {
           title
@@ -84,11 +82,11 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          author
-          slug
           counter {
             counter
           }
+          author
+          slug
           contentful_id
         }
       }
