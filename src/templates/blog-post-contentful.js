@@ -10,10 +10,34 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogPostContentfulTemplate extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      copied: false,
+    }
+  }
   render() {
     const articles = this.props.data.allContentfulPost.edges
     const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
+    const link = this.props.location.href
+
+    const handleClick = e => {
+      const target = document.getElementById(e.target.id)
+      if (navigator.clipboard) {
+        target.disabled = true
+        navigator.clipboard.writeText(link)
+        this.setState({ copied: true })
+        setTimeout(() => {
+          this.setState({ copied: false })
+          target.disabled = false
+        }, 1500)
+
+        return true
+      } else {
+        return false
+      }
+    }
 
     return (
       <Layout
@@ -47,19 +71,28 @@ class BlogPostContentfulTemplate extends React.Component {
                   shadow={"true"}
                   transform={"true"}
                   border={"true"}
-                  style={{ marginRight: "2.4rem" }}
+                  style={{ marginRight: "2.4rem", cursor: "pointer" }}
+                  onClick={handleClick}
+                  copied={this.state.copied}
+                  id="link"
                 >
                   リンク
                 </Button>
-                <Button
-                  color={"#ffffff"}
-                  bgc={"#00ACEE"}
-                  shadow={"true"}
-                  transform={"true"}
-                  border={"true"}
+                <a
+                  href={`http://twitter.com/share?url=${link}&text=${post.title}`}
+                  data-lang="ja"
                 >
-                  ツイッターで共有
-                </Button>
+                  <Button
+                    color={"#ffffff"}
+                    bgc={"#00ACEE"}
+                    shadow={"true"}
+                    transform={"true"}
+                    border={"true"}
+                    id="share"
+                  >
+                    ツイッターで共有
+                  </Button>
+                </a>
               </FooterContainer>
               <hr />
             </footer>
@@ -128,6 +161,7 @@ export const pageQuery = graphql`
       title
       subtitle
       author
+      slug
       longText {
         childMarkdownRemark {
           html

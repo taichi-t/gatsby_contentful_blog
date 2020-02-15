@@ -6,7 +6,6 @@ const syntaxHighlightingStyle = css`
     margin: 0 -3.2rem;
   }
 
-  /* Line highlight plugin */
   .gatsby-highlight-code-line {
   }
 

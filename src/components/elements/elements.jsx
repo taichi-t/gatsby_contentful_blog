@@ -76,6 +76,23 @@ export const Button = styled.div`
     transition: 0.1s;
     box-shadow: none;
   }
+
+  ${({ copied }) =>
+    copied &&
+    `&:before{
+      content: "コピーしました！";
+      color:#ffffff;
+      font-size:1rem;
+  position: absolute;
+  width: 100px; 
+  line-height: 3;
+  height: auto;
+  bottom:-110%;
+  left:-40%;
+  background:#bbc0cf;
+    }
+    }
+  `}
 `
 
 export const InstaButton = styled.div`
