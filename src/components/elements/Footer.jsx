@@ -14,7 +14,7 @@ export const Footer = () => {
 
 const FooterContainer = styled.div`
   text-align: center;
-  padding-top: 60px;
+  padding-top: 6rem;
 `
 
 const Line = styled.hr`
@@ -22,9 +22,9 @@ const Line = styled.hr`
 `
 
 const FooterText = styled.p`
-  padding: 32px 0;
+  padding: 3.2rem 0;
   color: #bfbfbf;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
 `
 

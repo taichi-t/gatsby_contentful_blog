@@ -1,7 +1,7 @@
 import Typography from "typography"
 
 const typography = new Typography({
-  baseFontSize: "16px",
+  baseFontSize: "1.6rem",
   baseLineHeight: 1.45,
   googleFonts: [
     {
@@ -9,16 +9,16 @@ const typography = new Typography({
       styles: ["700"],
     },
     {
-      name: "Merriweather",
-      styles: ["400", "400i", "700", "700i"],
+      name: "Source Code Pro",
+      styles: ["400", "700"],
     },
     {
-      name: "Kosugi",
-      styles: ["400", "400i", "700", "700i"],
+      name: "Noto Sans JP",
+      styles: ["400", "700"],
     },
   ],
   headerFontFamily: [
-    "Kosugi",
+    "Noto Sans JP",
     "Montserrat",
     "Avenir Next",
     "Helvetica Neue",
@@ -27,7 +27,7 @@ const typography = new Typography({
     "Arial",
     "sans-serif",
   ],
-  bodyFontFamily: ["Kosugi", "serif"],
+  bodyFontFamily: ["Noto Sans JP", "Source Code Pro", "serif"],
 })
 
 // Hot reload typography in development.

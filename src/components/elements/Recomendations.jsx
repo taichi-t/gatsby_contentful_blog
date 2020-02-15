@@ -32,9 +32,7 @@ const Recomendations = articles => {
 
   return (
     <RecomendationsContainer>
-      <Title>
-        <h2>オススメ</h2>
-      </Title>
+      <Title>オススメ</Title>
       {limitsPosts &&
         limitsPosts.map(({ node }, index) => {
           const title = node.title || node.slug
@@ -54,7 +52,9 @@ const Recomendations = articles => {
   )
 }
 const RecomendationsContainer = styled.ul`
-  margin-top: 60px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 6rem;
   border: solid 2px #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
@@ -62,16 +62,16 @@ const RecomendationsContainer = styled.ul`
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
 `
 const RecomendationsList = styled.li`
-  padding: 24px 16px;
+  padding: 2.4rem 1.6rem;
   border-bottom: 1px solid #bbc0cf;
 `
 
-const Title = styled.div`
+const Title = styled.h2`
+  font-size: 2.5rem;
   border-bottom: 1px solid #bbc0cf;
-  padding: 24px 0;
+  padding: 2.4rem 0;
   text-align: center;
   color: #000000;
   background-color: #fef6d9;
-  font-size: 25px;
 `
 export default Recomendations

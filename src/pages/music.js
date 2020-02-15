@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(filter: { category: { eq: "music" } }, limit: 10) {
+    allContentfulPost(filter: { category: { eq: "音楽" } }, limit: 10) {
       edges {
         node {
           title

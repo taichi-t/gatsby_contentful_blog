@@ -72,7 +72,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(filter: { category: { eq: "vancouver" } }, limit: 10) {
+    allContentfulPost(filter: { category: { eq: "バンクーバー" } }, limit: 10) {
       edges {
         node {
           title

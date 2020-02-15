@@ -73,7 +73,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(filter: { category: { eq: "tech" } }, limit: 10) {
+    allContentfulPost(filter: { category: { eq: "テック系" } }, limit: 10) {
       edges {
         node {
           title

@@ -33,9 +33,9 @@ export class NavBar extends Component {
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
-            style={{ marginRight: 20, fontSize: 20 }}
             transform="false"
             border="false"
+            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveNewArticles}
           >
             新着
@@ -45,9 +45,9 @@ export class NavBar extends Component {
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
-            style={{ marginRight: 20, fontSize: 20 }}
             transform="false"
             border="false"
+            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveTechArticles}
           >
             テック系
@@ -57,9 +57,9 @@ export class NavBar extends Component {
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
-            style={{ marginRight: 20, fontSize: 20 }}
             transform="false"
             border="false"
+            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveMusicArticles}
           >
             音楽
@@ -69,9 +69,9 @@ export class NavBar extends Component {
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
-            style={{ fontSize: 20 }}
             transform="false"
             border="false"
+            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveVanArticles}
           >
             バンクーバー
@@ -83,7 +83,8 @@ export class NavBar extends Component {
 }
 const NavContainer = styled.ul`
   display: flex;
-  padding-bottom: 52px;
+  font-weight: 700;
+  padding-bottom: 5.2rem;
   width: 100%;
   color: #000;
 `

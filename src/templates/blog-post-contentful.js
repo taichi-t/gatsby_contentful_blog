@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import postContentStyle from "./post-style/postContentStyle"
+import syntaxHighlightingStyle from "./post-style/syntaxHighlightingStyle"
+import { Button } from "../components/elements/elements"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -20,13 +22,14 @@ class BlogPostContentfulTemplate extends React.Component {
         articles={articles}
       >
         <SEO title={post.title} description={post.subtitle} />
-
-        <article>
-          <ArticleContaienr>
+        <ArticleContaienr>
+          <article>
             <header>
-              <PostTitle>{post.title}</PostTitle>
-              <PostDiscription>{post.date}</PostDiscription>
-              <PostDiscription>#{post.category}</PostDiscription>
+              <HeaderContainer>
+                <PostTitle>{post.title}</PostTitle>
+                <PostDiscription>{post.date}</PostDiscription>
+                <PostDiscription>#{post.category}</PostDiscription>
+              </HeaderContainer>
             </header>
 
             <section>
@@ -36,23 +39,46 @@ class BlogPostContentfulTemplate extends React.Component {
                 }}
               ></PostContent>
             </section>
-
-            <hr />
-          </ArticleContaienr>
-        </article>
+            <footer>
+              <FooterContainer>
+                <Button
+                  color={"#ffffff"}
+                  bgc={"#808080"}
+                  shadow={"true"}
+                  transform={"true"}
+                  border={"true"}
+                  style={{ marginRight: "2.4rem" }}
+                >
+                  リンク
+                </Button>
+                <Button
+                  color={"#ffffff"}
+                  bgc={"#00ACEE"}
+                  shadow={"true"}
+                  transform={"true"}
+                  border={"true"}
+                >
+                  ツイッターで共有
+                </Button>
+              </FooterContainer>
+              <hr />
+            </footer>
+          </article>
+        </ArticleContaienr>
       </Layout>
     )
   }
 }
 
-const PostContent = styled.div`
-  ${postContentStyle}
+const HeaderContainer = styled.div`
+  margin: 2.4rem 0 6.4rem 0;
 `
 
 const ArticleContaienr = styled.div`
+  color: #333;
   width: 100%;
   height: 100%;
-  padding: 32px;
+  padding: 3.2rem;
   background-color: #fffdf7;
   border: 1px solid #bbc0cf;
   -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
@@ -60,20 +86,31 @@ const ArticleContaienr = styled.div`
   box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
 `
 
+const PostContent = styled.div`
+  ${postContentStyle}
+  ${syntaxHighlightingStyle}
+  margin-bottom: 6.4rem;
+`
+
 const PostTitle = styled.h1`
-  font-size: 40px;
+  font-size: 4.8rem;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 `
 
 const PostDiscription = styled.h2`
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #000000;
   opacity: 0.5;
-  padding-bottom: 16px;
+  padding-bottom: 0.8rem;
   &:last-of-type {
     padding-bottom: 0;
   }
+`
+
+const FooterContainer = styled.div`
+  display: flex;
+  padding-bottom: 2.4rem;
 `
 
 export default BlogPostContentfulTemplate

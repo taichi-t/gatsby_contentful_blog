@@ -109,7 +109,8 @@ const Aside = () => {
   )
 }
 const AsideContainer = styled.div`
-  padding: 16px;
+  font-size: 1.6rem;
+  padding: 1.6rem;
   border: solid 2px #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
@@ -118,20 +119,20 @@ const AsideContainer = styled.div`
 `
 
 const AvatarContainer = styled.div`
-  padding: 16px 16px 24px 16px;
+  padding: 1.6rem 1.6rem 2.4rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
 `
 
 const MeDiscription = styled.p`
-  padding-bottom: 16px;
+  padding-bottom: 1.6rem;
 `
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 1.6rem 0;
 `
 
 export default Aside

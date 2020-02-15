@@ -24,12 +24,12 @@ const LogoContainer = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 150px;
+  width: 15rem;
 `
 
 const HeaderContainer = styled.div`
   position: relative;
-  height: 100px;
+  height: 10rem;
   background-color: #fffdf7;
   -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.25);
