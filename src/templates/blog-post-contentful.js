@@ -81,6 +81,8 @@ class BlogPostContentfulTemplate extends React.Component {
                 <a
                   href={`http://twitter.com/share?url=${link}&text=${post.title}`}
                   data-lang="ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Button
                     color={"#ffffff"}
