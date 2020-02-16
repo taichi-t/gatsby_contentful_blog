@@ -144,7 +144,7 @@ export const PostImage = styled.div`
 export const PostText = styled.div`
   position: relative;
   width: 70%;
-  margin-left: 20px;
+  margin: 0 2rem;
 `
 
 export const PostTitle = styled.h3`
