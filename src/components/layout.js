@@ -25,7 +25,7 @@ export class Layout extends React.Component {
         </header>
         <Wrapper top={60}>
           <Grid container spacing={4}>
-            <Grid item xs={8}>
+            <Grid item sm={8} xs={12}>
               <main>
                 <nav>
                   <NavBar path={this.props.location.pathname} />
@@ -33,7 +33,7 @@ export class Layout extends React.Component {
                 {children}
               </main>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={4} xs={12}>
               <aside>
                 <Aside />
                 <Recomendations articles={this.props.articles} />
