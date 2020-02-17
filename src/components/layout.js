@@ -1,6 +1,7 @@
 import React from "react"
-
 import Grid from "@material-ui/core/Grid"
+import theme from "./elements/theme"
+import { ThemeProvider } from "@material-ui/core/styles"
 
 //elemetns
 import { Wrapper } from "./elements/elements"
@@ -15,36 +16,36 @@ export class Layout extends React.Component {
   render() {
     const { children } = this.props
 
-    // const rootPath = `${__PATH_PREFIX__}/`
-
     return (
       <>
-        <GlobalStyle />
-        <header>
-          <Header />
-        </header>
-        <Wrapper top={60}>
-          <Grid container spacing={4}>
-            <Grid item sm={8} xs={12}>
-              <main>
-                <nav>
-                  <NavBar path={this.props.location.pathname} />
-                </nav>
-                {children}
-              </main>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <header>
+            <Header />
+          </header>
+          <Wrapper top={60}>
+            <Grid container spacing={4}>
+              <Grid item md={8} xs={12}>
+                <main>
+                  <nav>
+                    <NavBar path={this.props.location.pathname} />
+                  </nav>
+                  {children}
+                </main>
+              </Grid>
+              <Grid item md={4} xs={12}>
+                <aside>
+                  <Aside />
+                  <Recomendations articles={this.props.articles} />
+                </aside>
+              </Grid>
             </Grid>
-            <Grid item sm={4} xs={12}>
-              <aside>
-                <Aside />
-                <Recomendations articles={this.props.articles} />
-              </aside>
-            </Grid>
-          </Grid>
 
-          <footer>
-            <Footer />
-          </footer>
-        </Wrapper>
+            <footer>
+              <Footer />
+            </footer>
+          </Wrapper>
+        </ThemeProvider>
       </>
     )
   }

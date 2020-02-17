@@ -4,12 +4,11 @@ import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 html{
-  background-color: #fef9e4;
   font-size:62.5%;
 }
 
 body {
-
+  background-color: #fef9e4;
     color:#000000;
   }
   a{
@@ -157,3 +156,12 @@ export const PostDiscription = styled.div`
   font-size: 1.6rem;
   bottom: 32px;
 `
+
+//default break points
+
+export const media = {
+  huge: "1080px",
+  large: "1170px",
+  medium: "768px",
+  small: "450px",
+}
