@@ -1,15 +1,24 @@
 import styled, { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
+//default break points
+
+export const breakPoints = {
+  huge: "1080px",
+  large: "1170px",
+  medium: "660px",
+  small: "540px",
+  xsmall: "500px",
+}
 
 //utils
 
 export const GlobalStyle = createGlobalStyle`
 html{
-  background-color: #fef9e4;
   font-size:62.5%;
 }
 
 body {
-
+  background-color: #fef9e4;
     color:#000000;
   }
   a{
@@ -48,8 +57,9 @@ export const Button = styled.div`
   position: relative;
   border: ${props => (props.border === "true" ? "1px solid #1c2d5e" : "none")};
   text-align: center;
-  font-size: 1.6rem;
+  font-size: ${props => props.fontSize}rem;
   padding: 0 4px;
+  margin-right: ${props => props.marginRight}rem;
   line-height: 3.8rem;
   color: ${props => props.color};
   width: auto;
@@ -93,13 +103,33 @@ export const Button = styled.div`
     }
     }
   `}
+  ${media.lessThan(breakPoints["huge"])`
+  ${({ mediaQuery }) =>
+    mediaQuery &&
+    `{
+      margin-bottom:1.5rem;
+    }
+    }
+  `}
+  `}
+
+  ${media.lessThan(breakPoints["xsmall"])`
+  ${({ mediaQueryXs }) =>
+    mediaQueryXs &&
+    `{
+      font-size:1.6rem;
+      margin-right:0;
+    }
+    }
+  `}
+  `}
 `
 
 export const InstaButton = styled.div`
   position: relative;
   border: 1px solid #1c2d5e;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: ${props => props.fontSize}rem;
   padding: 0 4px;
   line-height: 3.8rem;
   color: #ffffff;
@@ -124,36 +154,81 @@ export const InstaButton = styled.div`
     transition: 0.1s;
     box-shadow: none;
   }
+  ${media.lessThan(breakPoints["huge"])`
+  ${({ mediaQuery }) =>
+    mediaQuery &&
+    `{
+      margin-bottom:1.5rem;
+    }
+    }
+  `}
+  `}
 `
 
 //blog-post
 
 export const Post = styled.div`
   display: flex;
-  margin-bottom: 32px;
+  margin-bottom: 3.2rem;
   border: 2px solid #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  ${media.lessThan(breakPoints["huge"])`
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  `}
+
+  ${media.lessThan(breakPoints["xsmall"])`
+  display:block;
+  padding:2rem;
+  `}
 `
 export const PostImage = styled.div`
   object-fit: contain;
   width: 30%;
+  ${media.lessThan(breakPoints["xsmall"])`
+  margin:0 auto;
+  width:100%;
+  `}
 `
 export const PostText = styled.div`
   position: relative;
   width: 70%;
   margin: 0 2rem;
+  ${media.lessThan(breakPoints["xsmall"])`
+  margin:0;
+  width:100%;
+  `}
 `
 
 export const PostTitle = styled.h3`
   font-size: 2.5rem;
-  padding-top: 32px;
+  padding-top: 3.2rem;
+  ${media.lessThan(breakPoints["large"])`
+  font-size:2.8rem;
+  `}
+  ${media.lessThan(breakPoints["medium"])`
+  font-size:2.2rem;
+padding-top:2rem;
+  `}
+  ${media.lessThan(breakPoints["xsmall"])`
+  padding-bottom:2.4rem;
+  `}
 `
 
 export const PostDiscription = styled.div`
   position: absolute;
   font-size: 1.6rem;
-  bottom: 32px;
+  bottom: 3.2rem;
+  ${media.lessThan(breakPoints["medium"])`
+  bottom:2rem;
+  font-size: 1.2rem;
+  `}
+  ${media.lessThan(breakPoints["xsmall"])`
+  width:100%;
+  position:initial
+  `}
 `

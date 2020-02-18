@@ -4,6 +4,8 @@ import Image from "gatsby-image"
 import styled from "styled-components"
 import { Button } from "./elements"
 import { InstaButton } from "./elements"
+import media from "styled-media-query"
+import { breakPoints } from "./elements"
 
 const Aside = () => {
   const data = useStaticQuery(graphql`
@@ -61,6 +63,8 @@ const Aside = () => {
             activeBgc="#00ACEE"
             activeColor="#ffffff"
             transform="true"
+            mediaQuery={true}
+            fontSize={1.6}
           >
             ツイッター
           </Button>
@@ -70,7 +74,7 @@ const Aside = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstaButton>
+          <InstaButton mediaQuery={true} fontSize={1.6}>
             <p
               style={{
                 position: "relative",
@@ -93,6 +97,7 @@ const Aside = () => {
             activeBgc="#171515"
             activeColor="#ffffff"
             transform="true"
+            fontSize={1.6}
           >
             Git Hub
           </Button>
@@ -109,6 +114,17 @@ const AsideContainer = styled.div`
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  ${media.lessThan(breakPoints["huge"])`
+  text-align:center;
+  width:50%;
+  margin-right:3rem;
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  `}
+  ${media.lessThan(breakPoints["small"])`
+  width:100%;
+  `}
 `
 
 const AvatarContainer = styled.div`
@@ -116,6 +132,10 @@ const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  ${media.lessThan(breakPoints["huge"])`
+  display:block;
+  
+  `}
 `
 
 const MeDiscription = styled.p`
@@ -126,6 +146,9 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1.6rem 0;
+  ${media.lessThan(breakPoints["huge"])`
+  display:block;
+  `}
 `
 
 export default Aside

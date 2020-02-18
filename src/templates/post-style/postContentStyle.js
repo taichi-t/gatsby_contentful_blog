@@ -1,4 +1,6 @@
 import { css } from "styled-components"
+import media from "styled-media-query"
+import { breakPoints } from "../../components/elements/elements"
 
 const postContentStyle = css`
   line-height: 1.9;
@@ -7,17 +9,26 @@ const postContentStyle = css`
     font-size: 4.8rem;
     margin: 5.6rem 0 2.4rem 0;
     border-bottom: solid 1px #bbc0cf;
+    ${media.lessThan(breakPoints["xsmall"])`
+    font-size:3.2rem;
+  `}
   }
   h2 {
     line-height: 1.9;
     font-size: 4rem;
     margin: 4.8rem 0 2.4rem 0;
     border-bottom: solid 1px #bbc0cf;
+    ${media.lessThan(breakPoints["xsmall"])`
+    font-size:3rem;
+  `}
   }
   h3 {
     line-height: 1.9;
     font-size: 3.2rem;
     margin: 4rem 0 2.4rem 0;
+    ${media.lessThan(breakPoints["xsmall"])`
+    font-size:2.6rem;
+  `}
   }
   a {
     color: #1c2d5e;

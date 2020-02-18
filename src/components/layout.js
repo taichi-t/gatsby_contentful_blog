@@ -1,6 +1,10 @@
 import React from "react"
-
 import Grid from "@material-ui/core/Grid"
+import theme from "./elements/theme"
+import { ThemeProvider } from "@material-ui/core/styles"
+import styled from "styled-components"
+import media from "styled-media-query"
+import { breakPoints } from "./elements/elements"
 
 //elemetns
 import { Wrapper } from "./elements/elements"
@@ -15,39 +19,51 @@ export class Layout extends React.Component {
   render() {
     const { children } = this.props
 
-    // const rootPath = `${__PATH_PREFIX__}/`
-
     return (
       <>
-        <GlobalStyle />
-        <header>
-          <Header />
-        </header>
-        <Wrapper top={60}>
-          <Grid container spacing={4}>
-            <Grid item xs={8}>
-              <main>
-                <nav>
-                  <NavBar path={this.props.location.pathname} />
-                </nav>
-                {children}
-              </main>
-            </Grid>
-            <Grid item xs={4}>
-              <aside>
-                <Aside />
-                <Recomendations articles={this.props.articles} />
-              </aside>
-            </Grid>
-          </Grid>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <header>
+            <Header />
+          </header>
+          <Wrapper top={60}>
+            <Grid container spacing={4}>
+              <Grid item md={8} xs={12}>
+                <main>
+                  <nav>
+                    <NavBar path={this.props.location.pathname} />
+                  </nav>
+                  {children}
+                </main>
+              </Grid>
 
-          <footer>
-            <Footer />
-          </footer>
-        </Wrapper>
+              <Grid item md={4}>
+                <aside>
+                  <AsideContainer>
+                    <Aside />
+                    <Recomendations articles={this.props.articles} />
+                  </AsideContainer>
+                </aside>
+              </Grid>
+            </Grid>
+
+            <footer>
+              <Footer />
+            </footer>
+          </Wrapper>
+        </ThemeProvider>
       </>
     )
   }
 }
+
+const AsideContainer = styled.div`
+  ${media.lessThan(breakPoints["huge"])`
+  display: flex;
+  `}
+  ${media.lessThan(breakPoints["small"])`
+  display: block;
+  `}
+`
 
 export default Layout

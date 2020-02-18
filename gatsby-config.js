@@ -154,6 +154,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-theme-material-ui`,
     `@contentful/gatsby-transformer-contentful-richtext`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
