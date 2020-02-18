@@ -4,6 +4,8 @@ import styled from "styled-components"
 import postContentStyle from "./post-style/postContentStyle"
 import syntaxHighlightingStyle from "./post-style/syntaxHighlightingStyle"
 import { Button } from "../components/elements/elements"
+import media from "styled-media-query"
+import { breakPoints } from "../components/elements/elements"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -75,6 +77,7 @@ class BlogPostContentfulTemplate extends React.Component {
                   onClick={handleClick}
                   copied={this.state.copied}
                   id="link"
+                  fontSize={1.6}
                 >
                   リンク
                 </Button>
@@ -91,6 +94,7 @@ class BlogPostContentfulTemplate extends React.Component {
                     transform={"true"}
                     border={"true"}
                     id="share"
+                    fontSize={1.6}
                   >
                     ツイッターで共有
                   </Button>
@@ -119,6 +123,9 @@ const ArticleContaienr = styled.div`
   -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
+  ${media.lessThan(breakPoints["xsmall"])`
+    font-size:3rem;
+  `}
 `
 
 const PostContent = styled.div`
@@ -131,6 +138,9 @@ const PostTitle = styled.h1`
   font-size: 4.8rem;
   font-weight: bold;
   margin-bottom: 2.4rem;
+  ${media.lessThan(breakPoints["xsmall"])`
+    font-size:3.2rem;
+  `}
 `
 
 const PostDiscription = styled.h2`
