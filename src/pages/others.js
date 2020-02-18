@@ -12,7 +12,7 @@ import { PostText } from "../components/elements/elements"
 import { PostTitle } from "../components/elements/elements"
 import { PostDiscription } from "../components/elements/elements"
 
-class MusicArticle extends React.Component {
+class OthersArticle extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -27,7 +27,7 @@ class MusicArticle extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle} articles={posts}>
-        <SEO title="music" />
+        <SEO title="other" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
@@ -62,7 +62,7 @@ class MusicArticle extends React.Component {
   }
 }
 
-export default MusicArticle
+export default OthersArticle
 
 export const pageQuery = graphql`
   query {
@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost(filter: { category: { eq: "音楽" } }, limit: 10) {
+    allContentfulPost(filter: { category: { eq: "その他" } }, limit: 10) {
       edges {
         node {
           title

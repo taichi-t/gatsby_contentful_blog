@@ -13,7 +13,7 @@ export class NavBar extends Component {
     this.state = {
       isActiveNewArticles: false,
       isActiveVanArticles: false,
-      isActiveMusicArticles: false,
+      isActiveOthersArticles: false,
       isActiveTchArticles: false,
     }
   }
@@ -22,8 +22,8 @@ export class NavBar extends Component {
     if (path === "/") this.setState({ isActiveNewArticles: true })
     if (path === "/category/vancouver")
       this.setState({ isActiveVanArticles: true })
-    if (path === "/category/music")
-      this.setState({ isActiveMusicArticles: true })
+    if (path === "/category/others")
+      this.setState({ isActiveOthersArticles: true })
     if (path === "/category/tech") this.setState({ isActiveTechArticles: true })
     if (path === "/category/new") this.setState({ isActiveNewArticles: true })
   }
@@ -59,20 +59,7 @@ export class NavBar extends Component {
             テック系
           </Button>
         </Link>
-        <Link to="/category/music">
-          <Button
-            activeBgc="#000000"
-            activeColor="#ffffff"
-            transform="false"
-            border="false"
-            isActive={this.state.isActiveMusicArticles}
-            fontSize={2}
-            marginRight={2}
-            mediaQueryXs={true}
-          >
-            音楽
-          </Button>
-        </Link>
+
         <Link to="/category/vancouver">
           <Button
             activeBgc="#000000"
@@ -82,8 +69,22 @@ export class NavBar extends Component {
             isActive={this.state.isActiveVanArticles}
             fontSize={2}
             mediaQueryXs={true}
+            marginRight={2}
           >
             バンクーバー
+          </Button>
+        </Link>
+        <Link to="/category/others">
+          <Button
+            activeBgc="#000000"
+            activeColor="#ffffff"
+            transform="false"
+            border="false"
+            isActive={this.state.isActiveOthersArticles}
+            fontSize={2}
+            mediaQueryXs={true}
+          >
+            その他
           </Button>
         </Link>
       </NavContainer>

@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/blog-post-contentful.js`)
   const categoryVancouver = path.resolve(`./src/pages/vancouver.js`)
   const categoryTech = path.resolve(`./src/pages/tech.js`)
-  const categoryMusic = path.resolve(`./src/pages/music.js`)
+  const categoryOthers = path.resolve(`./src/pages/others.js`)
   const result = await graphql(
     `
       {
@@ -61,8 +61,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: categoryTech,
     })
     createPage({
-      path: "/category/music",
-      component: categoryMusic,
+      path: "/category/others",
+      component: categoryOthers,
     })
   })
 }
