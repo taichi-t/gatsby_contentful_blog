@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { Button } from "./elements"
+import media from "styled-media-query"
+import { breakPoints } from "./elements"
 
 //elemetns
 
@@ -35,8 +37,10 @@ export class NavBar extends Component {
             activeColor="#ffffff"
             transform="false"
             border="false"
-            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveNewArticles}
+            fontSize={2}
+            marginRight={2}
+            mediaQueryXs={true}
           >
             新着
           </Button>
@@ -47,8 +51,10 @@ export class NavBar extends Component {
             activeColor="#ffffff"
             transform="false"
             border="false"
-            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveTechArticles}
+            fontSize={2}
+            marginRight={2}
+            mediaQueryXs={true}
           >
             テック系
           </Button>
@@ -59,8 +65,10 @@ export class NavBar extends Component {
             activeColor="#ffffff"
             transform="false"
             border="false"
-            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveMusicArticles}
+            fontSize={2}
+            marginRight={2}
+            mediaQueryXs={true}
           >
             音楽
           </Button>
@@ -71,8 +79,9 @@ export class NavBar extends Component {
             activeColor="#ffffff"
             transform="false"
             border="false"
-            style={{ marginRight: "2rem", fontSize: "2rem" }}
             isActive={this.state.isActiveVanArticles}
+            fontSize={2}
+            mediaQueryXs={true}
           >
             バンクーバー
           </Button>
@@ -87,6 +96,9 @@ const NavContainer = styled.ul`
   padding-bottom: 5.2rem;
   width: 100%;
   color: #000;
+  ${media.lessThan(breakPoints["xsmall"])`
+  justify-content:space-around;
+  `}
 `
 
 export default NavBar

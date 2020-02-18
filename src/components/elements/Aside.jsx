@@ -64,6 +64,7 @@ const Aside = () => {
             activeColor="#ffffff"
             transform="true"
             mediaQuery={true}
+            fontSize={1.6}
           >
             ツイッター
           </Button>
@@ -73,7 +74,7 @@ const Aside = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstaButton mediaQuery={true}>
+          <InstaButton mediaQuery={true} fontSize={1.6}>
             <p
               style={{
                 position: "relative",
@@ -96,6 +97,7 @@ const Aside = () => {
             activeBgc="#171515"
             activeColor="#ffffff"
             transform="true"
+            fontSize={1.6}
           >
             Git Hub
           </Button>
