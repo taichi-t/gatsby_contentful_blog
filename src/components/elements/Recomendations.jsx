@@ -14,7 +14,7 @@ const Recomendations = articles => {
     IncrementViewCount(entryId, prevCount)
   }
 
-  posts &&
+  if (posts) {
     posts.sort((a, b) => {
       const views = a.node.counter["counter"]
       const viewsPivot = b.node.counter["counter"]
@@ -23,6 +23,7 @@ const Recomendations = articles => {
       if (views < viewsPivot) return 1
       return 0
     })
+  }
 
   const limitsPosts = posts.slice(0, 4)
 
