@@ -1,4 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
+//default break points
+
+export const breakPoints = {
+  huge: "1080px",
+  large: "1170px",
+  medium: "660px",
+  small: "540px",
+}
 
 //utils
 
@@ -92,6 +101,15 @@ export const Button = styled.div`
     }
     }
   `}
+  ${media.lessThan(breakPoints["huge"])`
+  ${({ mediaQuery }) =>
+    mediaQuery &&
+    `{
+      margin-bottom:1.5rem;
+    }
+    }
+  `}
+  `}
 `
 
 export const InstaButton = styled.div`
@@ -123,6 +141,15 @@ export const InstaButton = styled.div`
     transition: 0.1s;
     box-shadow: none;
   }
+  ${media.lessThan(breakPoints["huge"])`
+  ${({ mediaQuery }) =>
+    mediaQuery &&
+    `{
+      margin-bottom:1.5rem;
+    }
+    }
+  `}
+  `}
 `
 
 //blog-post
@@ -135,6 +162,11 @@ export const Post = styled.div`
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  ${media.lessThan(breakPoints["huge"])`
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  `}
 `
 export const PostImage = styled.div`
   object-fit: contain;
@@ -148,20 +180,19 @@ export const PostText = styled.div`
 
 export const PostTitle = styled.h3`
   font-size: 2.5rem;
-  padding-top: 32px;
+  padding-top: 3.2rem;
+  ${media.lessThan(breakPoints["medium"])`
+  font-size:2.2rem;
+padding-top:2rem;
+  `}
 `
 
 export const PostDiscription = styled.div`
   position: absolute;
   font-size: 1.6rem;
-  bottom: 32px;
+  bottom: 3.2rem;
+  ${media.lessThan(breakPoints["medium"])`
+  bottom:2rem;
+  font-size: 1.2rem;
+  `}
 `
-
-//default break points
-
-export const media = {
-  huge: "1080px",
-  large: "1170px",
-  medium: "768px",
-  small: "450px",
-}

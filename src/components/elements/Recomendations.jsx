@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { IncrementViewCount } from "../../utils/common"
 import styled from "styled-components"
+import media from "styled-media-query"
+import { breakPoints } from "./elements"
 
 const Recomendations = articles => {
   const posts = articles.articles
@@ -48,11 +50,23 @@ const RecomendationsContainer = styled.ul`
   font-size: 1.6rem;
   font-weight: 700;
   margin-top: 6rem;
+  height: 100%;
   border: solid 2px #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  ${media.lessThan(breakPoints["huge"])`
+  width:50%;
+  margin-top:0;
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
+  `}
+  ${media.lessThan(breakPoints["small"])`
+  width:100%;
+  margin-top: 2.4rem;
+  `}
 `
 const RecomendationsList = styled.li`
   padding: 2.4rem 1.6rem;
