@@ -11,12 +11,12 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        {props.headComponents}
         <script
           type="text/javascript"
           src="//webfont.fontplus.jp/accessor/script/fontplus.js?T15pUyc~F~E%3D&box=-emmVg6r-Y8%3D&aa=1&ab=2"
           charset="utf-8"
         ></script>
-        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

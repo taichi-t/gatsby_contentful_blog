@@ -221,7 +221,7 @@ export const PostText = styled.div`
 `
 
 export const PostTitle = styled.h3`
-font-family: "RampartTLStd-EB";
+font-family: "FOT-ランパートTL Std EB";
   font-size: 2.5rem;
   padding-top: 3.2rem;
   ${media.lessThan(breakPoints["large"])`
