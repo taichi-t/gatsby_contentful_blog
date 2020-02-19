@@ -73,7 +73,6 @@ const RecomendationsContainer = styled.ul`
 const RecomendationsList = styled.li`
   padding: 2.4rem 1.6rem;
   border-bottom: 1px solid #bbc0cf;
-  font-family: "FOT-ランパートTL Std EB";
 `
 
 const Title = styled.h2`
