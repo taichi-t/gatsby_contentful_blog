@@ -13,6 +13,13 @@ export const breakPoints = {
 //utils
 
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: "Open Sans Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/OpenSans-Regular-BasicLatin.woff2") format("woff2");
+  font-display: swap;
+}
 *{
   box-sizing:border-box;
 }
@@ -27,6 +34,8 @@ body {
   background-color: #fef9e4;
     color:#000000;
   }
+
+
   a{
     color:inherit;
     text-decoration:none

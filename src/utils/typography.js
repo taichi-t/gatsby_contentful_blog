@@ -13,16 +13,7 @@ const typography = new Typography({
       styles: ["400", "700"],
     },
   ],
-  headerFontFamily: [
-    "Noto Sans JP",
-    "Montserrat",
-    "Avenir Next",
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-  ],
+  headerFontFamily: ["Noto Sans JP", "sans-serif"],
   bodyFontFamily: ["Noto Sans JP", "Source Code Pro", "serif"],
 })
 
