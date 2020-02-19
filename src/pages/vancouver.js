@@ -41,7 +41,7 @@ class VancouverArticles extends React.Component {
             >
               <Post>
                 <PostImage>
-                  <Img fluid={node.image.fluid} />
+                  <Img fluid={node.image.fluid} loading="lazy" />
                 </PostImage>
                 <PostText>
                   <header>
