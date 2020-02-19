@@ -68,8 +68,8 @@ export class NavBar extends Component {
             border="false"
             isActive={this.state.isActiveVanArticles}
             fontSize={2}
-            mediaQueryXs={true}
             marginRight={2}
+            mediaQueryXs={true}
           >
             バンクーバー
           </Button>

@@ -117,7 +117,7 @@ export const Button = styled.div`
   ${({ mediaQueryXs }) =>
     mediaQueryXs &&
     `{
-      font-size:1.6rem;
+      font-size:1.4rem;
       margin-right:0;
     }
     }
