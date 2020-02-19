@@ -41,7 +41,10 @@ class BlogPostContentfulTemplate extends React.Component {
     //   }
     // }
 
-    const handleClick = () => {
+    const handleClick = e => {
+      console.log(e.target)
+      e.target.disabled = true
+      this.setState({ copied: true })
       let elem = document.createElement("textarea")
       elem.id = "textarea"
       elem.innerText = link
@@ -49,14 +52,18 @@ class BlogPostContentfulTemplate extends React.Component {
       elem.style = "right:100vh"
       document.body.append(elem)
       elem.select()
-      var range = document.createRange()
+      const range = document.createRange()
       range.selectNodeContents(elem)
-      var sel = window.getSelection()
+      const sel = window.getSelection()
       sel.removeAllRanges()
       sel.addRange(range)
       elem.setSelectionRange(0, 999999)
       document.execCommand("copy")
       elem.remove()
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 1500)
+      e.target.disabled = false
     }
 
     return (
