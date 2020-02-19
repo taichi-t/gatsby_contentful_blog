@@ -15,7 +15,6 @@ import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
   render() {
-    console.log(this.props)
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges

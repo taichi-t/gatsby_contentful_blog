@@ -42,7 +42,6 @@ class BlogPostContentfulTemplate extends React.Component {
     // }
 
     const handleClick = e => {
-      console.log(e.target)
       e.target.disabled = true
       this.setState({ copied: true })
       let elem = document.createElement("textarea")

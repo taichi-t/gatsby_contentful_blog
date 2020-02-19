@@ -97,8 +97,10 @@ const NavContainer = styled.ul`
   padding-bottom: 3.2rem;
   width: 100%;
   color: #000;
+  white-space: nowrap;
   ${media.lessThan(breakPoints["xsmall"])`
   justify-content:space-between;
+ 
   `}
 `
 
