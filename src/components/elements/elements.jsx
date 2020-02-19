@@ -223,7 +223,7 @@ export const PostText = styled.div`
 export const PostTitle = styled.h3`
   font-size: 2.5rem;
   padding-top: 3.2rem;
-  font-family: "FOT-スティールワーク Std B";
+  font-family: "FOT-シャドウTL Std B";
   ${media.lessThan(breakPoints["large"])`
   font-size:2.8rem;
   `}
