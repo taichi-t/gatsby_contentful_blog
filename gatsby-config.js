@@ -103,16 +103,21 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-sharp`,
       options: {
-        trackingId: `UA-125794831-1`,
-        head: false,
-        anonymize: true,
-        respectDNT: true,
+        defaultQuality: 70,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: `UA-125794831-1`,
+    //     head: false,
+    //     anonymize: true,
+    //     respectDNT: true,
+    //   },
+    // },
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
