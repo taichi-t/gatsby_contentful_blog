@@ -22,16 +22,6 @@ export const Header = () => {
   )
 }
 
-const LogoContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 15rem;
-  ${media.lessThan(breakPoints["xsmall"])`
-  width:10rem
-  `}
-`
-
 const HeaderContainer = styled.div`
   position: relative;
   height: 10rem;
@@ -40,7 +30,18 @@ const HeaderContainer = styled.div`
   -moz-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.25);
   ${media.lessThan(breakPoints["xsmall"])`
-  height:7rem
+  height:7rem;
+  padding-left:1.2rem;
+  `}
+`
+
+const LogoContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15rem;
+  ${media.lessThan(breakPoints["xsmall"])`
+  width:10rem
   `}
 `
 
