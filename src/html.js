@@ -12,11 +12,6 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        <script
-          type="text/javascript"
-          src="//webfont.fontplus.jp/accessor/script/fontplus.js?T15pUyc~F~E%3D&box=-emmVg6r-Y8%3D&aa=1&ab=2"
-          charset="utf-8"
-        ></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -26,6 +21,11 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        <script
+          type="text/javascript"
+          src="//webfont.fontplus.jp/accessor/script/fontplus.js?T15pUyc~F~E%3D&box=-emmVg6r-Y8%3D&aa=1&ab=2"
+          charset="utf-8"
+        ></script>
       </body>
     </html>
   )
