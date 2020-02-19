@@ -5,12 +5,8 @@ const typography = new Typography({
   baseLineHeight: 1.45,
   googleFonts: [
     {
-      name: "Montserrat",
-      styles: ["700"],
-    },
-    {
       name: "Source Code Pro",
-      styles: ["400", "700"],
+      styles: ["400"],
     },
     {
       name: "Noto Sans JP",
