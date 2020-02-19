@@ -53,7 +53,7 @@ class BlogPostContentfulTemplate extends React.Component {
             <header>
               <HeaderContainer>
                 <PostTitle>{post.title}</PostTitle>
-                <PostDiscription>{post.date}</PostDiscription>
+                <PostDiscription>{post.createdAt}</PostDiscription>
                 <PostDiscription>#{post.category}</PostDiscription>
               </HeaderContainer>
             </header>
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
           html
         }
       }
-      date(formatString: "YYYY.MM.DD")
+      createdAt(formatString: "YYYY.MM.DD")
       category
     }
     allContentfulPost {

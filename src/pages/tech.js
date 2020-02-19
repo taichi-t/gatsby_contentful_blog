@@ -50,7 +50,7 @@ class TechArticles extends React.Component {
                   </header>
                   <section>
                     <PostDiscription>
-                      <p>{node.date}</p>
+                      <p>{node.createdAt}</p>
                       <p>#{node.category}</p>
                     </PostDiscription>
                   </section>
@@ -78,7 +78,7 @@ export const pageQuery = graphql`
         node {
           title
           category
-          date(formatString: "YYYY.MM.DD")
+          createdAt(formatString: "YYYY.MM.DD")
           image {
             fluid(maxWidth: 220, maxHeight: 220) {
               ...GatsbyContentfulFluid
