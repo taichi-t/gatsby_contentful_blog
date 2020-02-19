@@ -13,15 +13,17 @@ export const breakPoints = {
 //utils
 
 export const GlobalStyle = createGlobalStyle`
-html{
-  font-size:62.5%;
-}
-
 *{
   box-sizing:border-box;
 }
 
+html{
+  font-size:62.5%;
+  background-color: #fef9e4;
+}
+
 body {
+  overflow-x: hidden;
   background-color: #fef9e4;
     color:#000000;
   }
@@ -60,6 +62,7 @@ export const Wrapper = styled.div`
     mediaQueryXs &&
     `{
       padding-top:3.2rem;
+      padding: 2rem;
     }
     }
   `}
