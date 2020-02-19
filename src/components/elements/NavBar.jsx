@@ -100,7 +100,7 @@ const NavContainer = styled.ul`
   white-space: nowrap;
   ${media.lessThan(breakPoints["xsmall"])`
   justify-content:space-between;
- 
+  padding:2.4rem 0;
   `}
 `
 
