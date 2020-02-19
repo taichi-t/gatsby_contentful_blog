@@ -25,7 +25,7 @@ const Recomendations = articles => {
     })
   }
 
-  const limitsPosts = posts.slice(0, 4)
+  const limitsPosts = posts && posts.slice(0, 4)
 
   return (
     <RecomendationsContainer>
