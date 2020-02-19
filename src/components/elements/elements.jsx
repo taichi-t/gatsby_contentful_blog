@@ -17,6 +17,10 @@ html{
   font-size:62.5%;
 }
 
+*{
+  box-sizing:border-box;
+}
+
 body {
   background-color: #fef9e4;
     color:#000000;
@@ -49,8 +53,17 @@ export const Wrapper = styled.div`
   max-width: 1080px;
   height: 100%;
   padding: 1rem;
-  padding-top: ${props => props.top}px;
+  padding-top: ${props => props.top}rem;
   margin: 0 auto;
+  ${media.lessThan(breakPoints["xsmall"])`
+  ${({ mediaQueryXs }) =>
+    mediaQueryXs &&
+    `{
+      padding-top:3.2rem;
+    }
+    }
+  `}
+  `}
 `
 
 export const Button = styled.div`
@@ -58,7 +71,7 @@ export const Button = styled.div`
   border: ${props => (props.border === "true" ? "1px solid #1c2d5e" : "none")};
   text-align: center;
   font-size: ${props => props.fontSize}rem;
-  padding: 0 4px;
+  padding: 0 0.4rem;
   margin-right: ${props => props.marginRight}rem;
   line-height: 3.8rem;
   color: ${props => props.color};
@@ -118,7 +131,7 @@ export const Button = styled.div`
     mediaQueryXs &&
     `{
       font-size:1.4rem;
-      margin-right:0;
+      margin-right:0px;
     }
     }
   `}
@@ -130,7 +143,7 @@ export const InstaButton = styled.div`
   border: 1px solid #1c2d5e;
   text-align: center;
   font-size: ${props => props.fontSize}rem;
-  padding: 0 4px;
+  padding: 0 0.4rem;
   line-height: 3.8rem;
   color: #ffffff;
   width: auto;

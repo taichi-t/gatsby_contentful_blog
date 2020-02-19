@@ -94,7 +94,7 @@ export class NavBar extends Component {
 const NavContainer = styled.ul`
   display: flex;
   font-weight: 700;
-  padding-bottom: 5.2rem;
+  padding-bottom: 3.2rem;
   width: 100%;
   color: #000;
   ${media.lessThan(breakPoints["xsmall"])`

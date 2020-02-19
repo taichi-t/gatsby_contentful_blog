@@ -26,7 +26,7 @@ export class Layout extends React.Component {
           <header>
             <Header />
           </header>
-          <Wrapper top={60}>
+          <Wrapper top={6} mediaQueryXs={true}>
             <Grid container spacing={4}>
               <Grid item md={8} xs={12}>
                 <main>

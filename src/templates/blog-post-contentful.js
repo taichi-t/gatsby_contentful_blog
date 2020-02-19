@@ -24,21 +24,39 @@ class BlogPostContentfulTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const link = this.props.location.href
 
-    const handleClick = e => {
-      const target = document.getElementById(e.target.id)
-      if (navigator.clipboard) {
-        target.disabled = true
-        navigator.clipboard.writeText(link)
-        this.setState({ copied: true })
-        setTimeout(() => {
-          this.setState({ copied: false })
-          target.disabled = false
-        }, 1500)
+    // const handleClick = e => {
+    //   const target = document.getElementById(e.target.id)
+    //   if (navigator.clipboard) {
+    //     target.disabled = true
+    //     navigator.clipboard.writeText(link)
+    //     this.setState({ copied: true })
+    //     setTimeout(() => {
+    //       this.setState({ copied: false })
+    //       target.disabled = false
+    //     }, 1500)
 
-        return true
-      } else {
-        return false
-      }
+    //     return true
+    //   } else {
+    //     return false
+    //   }
+    // }
+
+    const handleClick = () => {
+      let elem = document.createElement("textarea")
+      elem.id = "textarea"
+      elem.innerText = link
+      elem.readOnly = "readOnly"
+      elem.style = "right:100vh"
+      document.body.append(elem)
+      elem.select()
+      var range = document.createRange()
+      range.selectNodeContents(elem)
+      var sel = window.getSelection()
+      sel.removeAllRanges()
+      sel.addRange(range)
+      elem.setSelectionRange(0, 999999)
+      document.execCommand("copy")
+      elem.remove()
     }
 
     return (
@@ -81,6 +99,7 @@ class BlogPostContentfulTemplate extends React.Component {
                 >
                   リンク
                 </Button>
+
                 <a
                   href={`http://twitter.com/share?url=${link}&text=${post.title}`}
                   data-lang="ja"

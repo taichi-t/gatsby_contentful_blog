@@ -15,9 +15,7 @@ export const IncrementViewCount = (entryId, prevCount) => {
     .then(space => space.getEnvironment("master"))
     .then(enviroment => enviroment.getEntry(entryId))
     .then(entry => {
-      console.log(entryId)
       entry.fields.counter["en-US"].counter = `${Number(prevCount) + 1}`
-      console.log(entry.fields.counter["en-US"].counter)
       return entry.update()
     })
     .then(

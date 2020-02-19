@@ -140,6 +140,7 @@ const AvatarContainer = styled.div`
 
 const MeDiscription = styled.p`
   padding-bottom: 1.6rem;
+  text-align: left;
 `
 
 const ButtonContainer = styled.div`
