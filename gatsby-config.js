@@ -10,6 +10,7 @@ module.exports = {
     author: `盆地デベロッパー`,
     description: `バンクーバーのウェブ系カレッジで一から ウェブを学ぶ人。
     現地の生活や、テック系や、 趣味を発信しようと思います`,
+    siteUrl: `https://van-hunter.com`,
     social: {
       twitter: `EndTaichi`,
       instagram: `nabagibasan`,
@@ -151,9 +152,5 @@ module.exports = {
     },
     `gatsby-theme-material-ui`,
     `@contentful/gatsby-transformer-contentful-richtext`,
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
