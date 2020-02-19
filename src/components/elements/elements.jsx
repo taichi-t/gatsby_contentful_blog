@@ -130,7 +130,7 @@ export const Button = styled.div`
   ${({ mediaQueryXs }) =>
     mediaQueryXs &&
     `{
-      font-size:1.4rem;
+      font-size:1.6rem;
       margin-right:0px;
     }
     }
@@ -171,7 +171,7 @@ export const InstaButton = styled.div`
   ${({ mediaQuery }) =>
     mediaQuery &&
     `{
-      margin-bottom:1.5rem;
+      margin-bottom:1.6rem;
     }
     }
   `}
