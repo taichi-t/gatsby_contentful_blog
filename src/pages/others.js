@@ -85,7 +85,7 @@ export const pageQuery = graphql`
           counter {
             counter
           }
-          author
+
           slug
           contentful_id
         }

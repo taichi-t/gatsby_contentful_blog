@@ -84,7 +84,6 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          author
           slug
           counter {
             counter
