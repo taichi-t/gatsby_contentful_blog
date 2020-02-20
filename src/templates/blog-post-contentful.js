@@ -190,14 +190,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-
         author
       }
     }
     contentfulPost(slug: { eq: $slug }) {
       title
       subtitle
-      author
       slug
       longText {
         childMarkdownRemark {
@@ -211,7 +209,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          author
           slug
           counter {
             counter
