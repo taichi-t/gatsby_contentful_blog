@@ -23,7 +23,6 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               title
               subtitle
-              author
               slug
             }
           }
