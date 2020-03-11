@@ -24,23 +24,6 @@ class BlogPostContentfulTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const link = this.props.location.href
 
-    // const handleClick = e => {
-    //   const target = document.getElementById(e.target.id)
-    //   if (navigator.clipboard) {
-    //     target.disabled = true
-    //     navigator.clipboard.writeText(link)
-    //     this.setState({ copied: true })
-    //     setTimeout(() => {
-    //       this.setState({ copied: false })
-    //       target.disabled = false
-    //     }, 1500)
-
-    //     return true
-    //   } else {
-    //     return false
-    //   }
-    // }
-
     const handleClick = e => {
       e.target.disabled = true
       this.setState({ copied: true })

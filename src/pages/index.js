@@ -42,7 +42,12 @@ class BlogIndex extends React.Component {
             >
               <Post>
                 <PostImage>
-                  <Img fluid={node.image.fluid} loading="lazy" />
+                  <Img
+                    fluid={node.image.fluid}
+                    loading="lazy"
+                    maxWidth="200"
+                    maxHeight="200"
+                  />
                 </PostImage>
                 <PostText>
                   <header>

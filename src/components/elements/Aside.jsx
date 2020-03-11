@@ -43,8 +43,10 @@ const Aside = () => {
             borderStyle: "solid",
             borderWidth: 2,
             borderColor: "#1C2D5E",
+            maxWidth: "100",
+            maxHeight: "100",
           }}
-          imgStyle={{}}
+          loading="lazy"
         />
         <p>{data.site.siteMetadata.author}</p>
       </AvatarContainer>

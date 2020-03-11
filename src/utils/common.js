@@ -6,7 +6,6 @@ dotenv.config({
 })
 
 export const IncrementViewCount = (entryId, prevCount) => {
-  console.log(prevCount)
   const client = createClient({
     accessToken: process.env.GATSBY_CONTENTFUL_MANAGEMENT_TOKEN,
   })
