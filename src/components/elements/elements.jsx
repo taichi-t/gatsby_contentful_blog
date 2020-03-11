@@ -14,10 +14,10 @@ export const breakPoints = {
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
-  font-family: "Open Sans Regular";
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-style: normal;
-  src: url("fonts/OpenSans-Regular-BasicLatin.woff2") format("woff2");
+  src: url("fonFile.woff2") format("woff2");
   font-display: swap;
 }
 *{

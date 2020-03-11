@@ -17,9 +17,6 @@ export const IncrementViewCount = (entryId, prevCount) => {
       entry.fields.counter["en-US"].counter = `${Number(prevCount) + 1}`
       return entry.update()
     })
-    .then(
-      entry => console.log(`Entry ${entry.sys.id} updated.`) || entry.publish()
-    )
-    .then(entry => console.log(`Entry ${entry.sys.id} published.`))
+    .then(entry => entry.publish())
     .catch(console.error)
 }

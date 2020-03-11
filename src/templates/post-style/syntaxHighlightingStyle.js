@@ -19,10 +19,9 @@ const syntaxHighlightingStyle = css`
   }
 
   pre[class*="language-"] code {
-    font-family: "Source Code Pro", "monospace" !important;
+    font-family: "Source Code Pro", "monospace", sans-serif !important;
     color: #e3e3e3;
     text-shadow: none;
-    font-family: sans-serif;
     line-height: 1.8;
   }
   .gatsby-code-title {

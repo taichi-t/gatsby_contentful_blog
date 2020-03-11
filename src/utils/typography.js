@@ -14,7 +14,7 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: ["Noto Sans JP", "sans-serif"],
-  bodyFontFamily: ["Noto Sans JP", "Source Code Pro", "serif"],
+  bodyFontFamily: ["Noto Sans JP", "Source Code Pro", "sans-serif"],
 })
 
 // Hot reload typography in development.
