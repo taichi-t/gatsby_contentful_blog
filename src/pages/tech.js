@@ -43,7 +43,6 @@ class TechArticles extends React.Component {
                 <PostImage>
                   <Img
                     fluid={node.image.fluid}
-                    loading="lazy"
                     maxWidth="200"
                     maxHeight="200"
                   />
