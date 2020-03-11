@@ -13,13 +13,7 @@ export const breakPoints = {
 //utils
 
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonFile.woff2") format("woff2");
-  font-display: swap;
-}
+
 *{
   box-sizing:border-box;
 }
