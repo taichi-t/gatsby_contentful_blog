@@ -6,9 +6,6 @@ const syntaxHighlightingStyle = css`
     margin: 0 -3.2rem;
   }
 
-  .gatsby-highlight-code-line {
-  }
-
   pre[class*="language-"] {
     padding: 3rem;
     position: relative;

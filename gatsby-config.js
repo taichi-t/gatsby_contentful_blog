@@ -110,16 +110,7 @@ module.exports = {
         defaultQuality: 70,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `UA-125794831-1`,
-    //     head: false,
-    //     anonymize: true,
-    //     respectDNT: true,
-    //   },
-    // },
-    // `gatsby-plugin-feed`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

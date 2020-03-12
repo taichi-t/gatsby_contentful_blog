@@ -5,16 +5,16 @@ const typography = new Typography({
   baseLineHeight: 1.45,
   googleFonts: [
     {
-      name: "Source Code Pro",
-      styles: ["400"],
-    },
-    {
       name: "Noto Sans JP",
       styles: ["400", "700"],
     },
+    {
+      name: "Source Code Pro",
+      styles: ["400"],
+    },
   ],
   headerFontFamily: ["Noto Sans JP", "sans-serif"],
-  bodyFontFamily: ["Noto Sans JP", "Source Code Pro", "sans-serif"],
+  bodyFontFamily: ["Noto Sans JP", "sans-serif", "Source Code Pro"],
 })
 
 // Hot reload typography in development.

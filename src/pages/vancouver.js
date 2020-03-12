@@ -32,7 +32,6 @@ class VancouverArticles extends React.Component {
           const title = node.title || node.slug
           return (
             <Link
-              style={{}}
               to={`/${node.slug}`}
               key={node.slug}
               data-id={node.contentful_id}
@@ -83,7 +82,7 @@ export const pageQuery = graphql`
           category
           createdAt(formatString: "YYYY.MM.DD")
           image {
-            fluid(maxWidth: 220, maxHeight: 220, quality: 60) {
+            fluid(maxWidth: 220, maxHeight: 220, quality: 50) {
               ...GatsbyContentfulFluid
             }
           }
