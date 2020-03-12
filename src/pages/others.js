@@ -82,7 +82,7 @@ export const pageQuery = graphql`
           category
           createdAt(formatString: "YYYY.MM.DD")
           image {
-            fluid(maxWidth: 220, maxHeight: 220, quality: 70) {
+            fluid(maxWidth: 220, maxHeight: 220, quality: 60) {
               ...GatsbyContentfulFluid
             }
           }
