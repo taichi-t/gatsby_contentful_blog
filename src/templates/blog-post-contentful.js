@@ -7,8 +7,6 @@ import { Button } from "../components/elements/elements"
 import media from "styled-media-query"
 import { breakPoints } from "../components/elements/elements"
 
-// import Bio from "../components/bio"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogPostContentfulTemplate extends React.Component {
@@ -19,9 +17,7 @@ class BlogPostContentfulTemplate extends React.Component {
     }
   }
   render() {
-    const articles = this.props.data.allContentfulPost.edges
     const post = this.props.data.contentfulPost
-    const siteTitle = this.props.data.site.siteMetadata.title
     const link = this.props.location.href
 
     const handleClick = e => {
@@ -49,11 +45,7 @@ class BlogPostContentfulTemplate extends React.Component {
     }
 
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        articles={articles}
-      >
+      <>
         <SEO title={post.title} description={post.subtitle} />
         <ArticleContaienr>
           <article>
@@ -112,7 +104,7 @@ class BlogPostContentfulTemplate extends React.Component {
             </footer>
           </article>
         </ArticleContaienr>
-      </Layout>
+      </>
     )
   }
 }
@@ -170,12 +162,6 @@ export default BlogPostContentfulTemplate
 
 export const pageQuery = graphql`
   query ContentfulBlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     contentfulPost(slug: { eq: $slug }) {
       title
       subtitle

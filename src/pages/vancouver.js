@@ -10,13 +10,11 @@ import { PostText } from "../components/elements/elements"
 import { PostTitle } from "../components/elements/elements"
 import { PostDiscription } from "../components/elements/elements"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class VancouverArticles extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
     const handleClick = e => {
       const entryId = e.currentTarget.getAttribute("data-id")
@@ -26,7 +24,7 @@ class VancouverArticles extends React.Component {
     }
 
     return (
-      <Layout location={this.props.location} title={siteTitle} articles={posts}>
+      <>
         <SEO title="vancouver" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
@@ -61,7 +59,7 @@ class VancouverArticles extends React.Component {
             </Link>
           )
         })}
-      </Layout>
+      </>
     )
   }
 }

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { IncrementViewCount } from "../utils/common.js"
 
@@ -15,7 +14,6 @@ import { PostDiscription } from "../components/elements/elements"
 class OthersArticle extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
     const posts = data.allContentfulPost.edges
 
     const handleClick = e => {
@@ -26,7 +24,7 @@ class OthersArticle extends React.Component {
     }
 
     return (
-      <Layout location={this.props.location} title={siteTitle} articles={posts}>
+      <>
         <SEO title="other" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
@@ -61,7 +59,7 @@ class OthersArticle extends React.Component {
             </Link>
           )
         })}
-      </Layout>
+      </>
     )
   }
 }

@@ -18,17 +18,16 @@ export class NavBar extends Component {
     }
   }
   componentDidMount() {
-    const { path } = this.props
-    if (path === "/") this.setState({ isActiveNewArticles: true })
-    if (path === "/category/vancouver")
-      this.setState({ isActiveVanArticles: true })
-    if (path === "/category/others")
-      this.setState({ isActiveOthersArticles: true })
-    if (path === "/category/tech") this.setState({ isActiveTechArticles: true })
-    if (path === "/category/new") this.setState({ isActiveNewArticles: true })
+    // if (path === "/") this.setState({ isActiveNewArticles: true })
+    // if (path === "/vancouver") this.setState({ isActiveVanArticles: true })
+    // if (path === "/others") this.setState({ isActiveOthersArticles: true })
+    // if (path === "/tech") this.setState({ isActiveTechArticles: true })
+    // if (path === "/new") this.setState({ isActiveNewArticles: true })
   }
 
   render() {
+    const { path } = this.props
+    console.log(path)
     return (
       <NavContainer>
         <Link to="/">
@@ -37,7 +36,7 @@ export class NavBar extends Component {
             activeColor="#ffffff"
             transform="false"
             border="false"
-            isActive={this.state.isActiveNewArticles}
+            isActive={path === "/"}
             fontSize={2}
             marginRight={2}
             mediaQueryXs={true}
@@ -45,13 +44,13 @@ export class NavBar extends Component {
             新着
           </Button>
         </Link>
-        <Link to="/category/tech">
+        <Link to="/tech">
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
             transform="false"
             border="false"
-            isActive={this.state.isActiveTechArticles}
+            isActive={path === "/tech"}
             fontSize={2}
             marginRight={2}
             mediaQueryXs={true}
@@ -60,13 +59,13 @@ export class NavBar extends Component {
           </Button>
         </Link>
 
-        <Link to="/category/vancouver">
+        <Link to="/vancouver">
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
             transform="false"
             border="false"
-            isActive={this.state.isActiveVanArticles}
+            isActive={path === "/vancouver"}
             fontSize={2}
             marginRight={2}
             mediaQueryXs={true}
@@ -74,13 +73,13 @@ export class NavBar extends Component {
             バンクーバー
           </Button>
         </Link>
-        <Link to="/category/others">
+        <Link to="/others">
           <Button
             activeBgc="#000000"
             activeColor="#ffffff"
             transform="false"
             border="false"
-            isActive={this.state.isActiveOthersArticles}
+            isActive={path === "/others"}
             fontSize={2}
             mediaQueryXs={true}
           >

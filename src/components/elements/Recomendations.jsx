@@ -1,12 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import { IncrementViewCount } from "../../utils/common"
 import styled from "styled-components"
 import media from "styled-media-query"
 import { breakPoints } from "./elements"
 
-const Recomendations = articles => {
-  const posts = articles.articles
+const Recomendations = () => {
+  const { allContentfulPost } = useStaticQuery(graphql`
+    query ContentfulBlogPostByCategory {
+      allContentfulPost(
+        limit: 5
+        sort: { order: DESC, fields: createdAt }
+        filter: { popular: { eq: true } }
+      ) {
+        edges {
+          node {
+            title
+            slug
+            counter {
+              counter
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(allContentfulPost)
 
   const handleClick = e => {
     const entryId = e.currentTarget.getAttribute("data-id")
@@ -14,24 +34,11 @@ const Recomendations = articles => {
     IncrementViewCount(entryId, prevCount)
   }
 
-  if (posts) {
-    posts.sort((a, b) => {
-      const views = a.node.counter["counter"]
-      const viewsPivot = b.node.counter["counter"]
-
-      if (views > viewsPivot) return -1
-      if (views < viewsPivot) return 1
-      return 0
-    })
-  }
-
-  const limitsPosts = posts && posts.slice(0, 4)
-
   return (
     <RecomendationsContainer>
-      <Title>オススメ</Title>
-      {limitsPosts &&
-        limitsPosts.map(({ node }, index) => {
+      <Title>人気の記事</Title>
+      {allContentfulPost &&
+        allContentfulPost.edges.map(({ node }, index) => {
           const title = node.title || node.slug
           return (
             <Link
@@ -84,3 +91,20 @@ const Title = styled.h2`
   background-color: #fef6d9;
 `
 export default Recomendations
+
+// export const pageQuery = graphql`
+//   query ContentfulBlogPostByCategory {
+//     allContentfulPost(
+//       limit: 5
+//       sort: { order: DESC, fields: createdAt }
+//       filter: { popular: { eq: true } }
+//     ) {
+//       edges {
+//         node {
+//           title
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `

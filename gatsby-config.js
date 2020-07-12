@@ -10,7 +10,7 @@ module.exports = {
     author: `盆地デベロッパー`,
     description: `バンクーバーのウェブ系カレッジで一から ウェブを学ぶ人。
     現地の生活や、テック系や、 趣味を発信しようと思います`,
-    siteUrl: `https://van-hunter.com`,
+    siteUrl: `https://canajapa.com`,
     social: {
       twitter: `EndTaichi`,
       instagram: `nabagibasan`,
@@ -18,6 +18,12 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_TRAKING_ID,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
