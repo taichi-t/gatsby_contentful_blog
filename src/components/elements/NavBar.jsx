@@ -37,7 +37,7 @@ export class NavBar extends Component {
             marginRight={2}
             mediaQueryXs={true}
           >
-            テック系
+            テック
           </Button>
         </Link>
 
