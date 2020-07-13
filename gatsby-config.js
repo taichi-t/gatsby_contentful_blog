@@ -73,7 +73,7 @@ module.exports = {
               showLineNumbers: false,
 
               noInlineHighlight: false,
-
+              throwInlineCodeLanguageWarning: false,
               languageExtensions: [
                 {
                   language: "superscript",
@@ -113,8 +113,6 @@ module.exports = {
               loading: "lazy",
             },
           },
-
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
