@@ -11,17 +11,13 @@ import Recomendations from "./elements/Recomendations"
 import Header from "./elements/Header"
 import NavBar from "./elements/NavBar"
 import Footer from "./elements/Footer"
-import { GlobalStyle } from "./elements/elements"
-import theme from "./elements/theme"
-import { ThemeProvider } from "@material-ui/core/styles"
 
 export class Layout extends React.Component {
   render() {
     const { children } = this.props
 
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
+      <>
         <header>
           <Header />
         </header>
@@ -50,7 +46,7 @@ export class Layout extends React.Component {
             <Footer />
           </footer>
         </Wrapper>
-      </ThemeProvider>
+      </>
     )
   }
 }

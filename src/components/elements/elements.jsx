@@ -26,7 +26,10 @@ html{
 body {
   overflow-x: hidden;
   background-color: #fef9e4;
-    color:#000000;
+  color:#000000;
+  font-family:'Noto Sans JP', sans-serif;
+  font-size:1.6rem;
+  line-height:1.45
   }
 
 
@@ -48,6 +51,7 @@ body {
   }
   ul{
     margin:0;
+    padding:0;
     list-style:none;
   }
   li{

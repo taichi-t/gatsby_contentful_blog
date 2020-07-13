@@ -20,6 +20,21 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Noto Sans JP`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Source Code Pro`,
+            variants: [`400`],
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GATSBY_TRAKING_ID,
@@ -98,12 +113,7 @@ module.exports = {
               loading: "lazy",
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
+
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
@@ -131,13 +141,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
 
     {
       resolve: `gatsby-source-contentful`,

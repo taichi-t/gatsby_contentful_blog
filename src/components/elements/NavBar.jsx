@@ -8,26 +8,8 @@ import { breakPoints } from "./elements"
 //elemetns
 
 export class NavBar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isActiveNewArticles: false,
-      isActiveVanArticles: false,
-      isActiveOthersArticles: false,
-      isActiveTchArticles: false,
-    }
-  }
-  componentDidMount() {
-    // if (path === "/") this.setState({ isActiveNewArticles: true })
-    // if (path === "/vancouver") this.setState({ isActiveVanArticles: true })
-    // if (path === "/others") this.setState({ isActiveOthersArticles: true })
-    // if (path === "/tech") this.setState({ isActiveTechArticles: true })
-    // if (path === "/new") this.setState({ isActiveNewArticles: true })
-  }
-
   render() {
     const { path } = this.props
-    console.log(path)
     return (
       <NavContainer>
         <Link to="/">

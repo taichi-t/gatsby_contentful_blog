@@ -26,8 +26,6 @@ const Recomendations = () => {
     }
   `)
 
-  console.log(allContentfulPost)
-
   const handleClick = e => {
     const entryId = e.currentTarget.getAttribute("data-id")
     const prevCount = e.currentTarget.getAttribute("data-count")

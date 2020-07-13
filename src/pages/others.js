@@ -68,11 +68,6 @@ export default OthersArticle
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulPost(filter: { category: { eq: "その他" } }, limit: 10) {
       edges {
         node {

@@ -68,11 +68,6 @@ export default VancouverArticles
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulPost(filter: { category: { eq: "バンクーバー" } }, limit: 10) {
       edges {
         node {

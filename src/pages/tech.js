@@ -70,11 +70,6 @@ export default TechArticles
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulPost(filter: { category: { eq: "テック系" } }, limit: 10) {
       edges {
         node {
