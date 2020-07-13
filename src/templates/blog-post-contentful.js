@@ -18,7 +18,6 @@ class BlogPostContentfulTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.contentfulPost
-    console.log(post)
     const link = this.props.location.href
 
     const handleClick = e => {
@@ -126,6 +125,7 @@ const ArticleContaienr = styled.div`
   box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
   ${media.lessThan(breakPoints["xsmall"])`
     font-size:3rem;
+    padding: 0 1.6rem;
   `}
 `
 
