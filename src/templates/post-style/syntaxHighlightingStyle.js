@@ -1,9 +1,14 @@
 import { css } from "styled-components"
+import media from "styled-media-query"
+import { breakPoints } from "../../components/elements/elements"
 
 const syntaxHighlightingStyle = css`
   .gatsby-highlight {
     font-size: 1.6rem;
+    margin: 0 -3.2rem;
+    ${media.lessThan(breakPoints["xsmall"])`
     margin: 0 -1.6rem;
+    `}
   }
 
   pre[class*="language-"] {

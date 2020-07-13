@@ -65,13 +65,8 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: "language-",
-
               inlineCodeMarker: null,
-
-              aliases: {},
-
               showLineNumbers: false,
-
               noInlineHighlight: false,
               throwInlineCodeLanguageWarning: false,
               languageExtensions: [
@@ -113,7 +108,6 @@ module.exports = {
               loading: "lazy",
             },
           },
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
       },
