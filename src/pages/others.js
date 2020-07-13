@@ -38,11 +38,7 @@ class OthersArticle extends React.Component {
             >
               <Post>
                 <PostImage>
-                  <Img
-                    fluid={node.image.fluid}
-                    maxWidth="200"
-                    maxHeight="200"
-                  />
+                  <Img fluid={node.image.fluid} width="100%" height="100%" />
                 </PostImage>
                 <PostText>
                   <header>

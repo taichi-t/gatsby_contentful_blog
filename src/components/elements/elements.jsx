@@ -210,9 +210,11 @@ export const Post = styled.div`
 export const PostImage = styled.div`
   object-fit: contain;
   width: 30%;
+  height: 100%;
   ${media.lessThan(breakPoints["xsmall"])`
   margin:0 auto;
   width:100%;
+  height:100%
   `}
 `
 export const PostText = styled.div`
