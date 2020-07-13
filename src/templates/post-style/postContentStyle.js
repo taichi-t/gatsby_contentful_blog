@@ -51,6 +51,10 @@ const postContentStyle = css`
     color: #777777;
     border-left: 5px solid #ddd;
   }
+
+  img {
+    width: 100%;
+  }
 `
 
 export default postContentStyle

@@ -18,6 +18,7 @@ class BlogPostContentfulTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.contentfulPost
+    console.log(post)
     const link = this.props.location.href
 
     const handleClick = e => {
