@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { IncrementViewCount } from "../../utils/common"
+
 import styled from "styled-components"
 import media from "styled-media-query"
 import { breakPoints } from "./elements"
@@ -26,12 +26,6 @@ const Recomendations = () => {
     }
   `)
 
-  const handleClick = e => {
-    const entryId = e.currentTarget.getAttribute("data-id")
-    const prevCount = e.currentTarget.getAttribute("data-count")
-    IncrementViewCount(entryId, prevCount)
-  }
-
   return (
     <RecomendationsContainer>
       <Title>人気の記事</Title>
@@ -39,13 +33,7 @@ const Recomendations = () => {
         allContentfulPost.edges.map(({ node }, index) => {
           const title = node.title || node.slug
           return (
-            <Link
-              to={`/${node.slug}`}
-              key={index}
-              data-id={node.contentful_id}
-              data-count={node.counter["counter"]}
-              onClick={handleClick}
-            >
+            <Link to={`/${node.slug}`} key={index} data-id={node.contentful_id}>
               <RecomendationsList key={index}>{title}</RecomendationsList>
             </Link>
           )

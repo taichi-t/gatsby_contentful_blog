@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { IncrementViewCount } from "../utils/common.js"
 
 //elements
 import { Post } from "../components/elements/elements"
@@ -17,12 +16,6 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const posts = data.allContentfulPost.edges
 
-    const handleClick = e => {
-      const entryId = e.currentTarget.getAttribute("data-id")
-      const prevCount = e.currentTarget.getAttribute("data-count")
-      IncrementViewCount(entryId, prevCount)
-    }
-
     return (
       <>
         <SEO title="New posts" />
@@ -35,8 +28,6 @@ class BlogIndex extends React.Component {
               to={`/${node.slug}`}
               key={node.slug}
               data-id={node.contentful_id}
-              data-count={node.counter["counter"]}
-              onClick={handleClick}
             >
               <Post>
                 <PostImage>
@@ -78,9 +69,7 @@ export const pageQuery = graphql`
             }
           }
           slug
-          counter {
-            counter
-          }
+
           contentful_id
         }
       }

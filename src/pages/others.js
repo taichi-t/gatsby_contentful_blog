@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import { IncrementViewCount } from "../utils/common.js"
 
 //elements
 import { Post } from "../components/elements/elements"
@@ -16,13 +15,6 @@ class OthersArticle extends React.Component {
     const { data } = this.props
     const posts = data.allContentfulPost.edges
 
-    const handleClick = e => {
-      const entryId = e.currentTarget.getAttribute("data-id")
-      const prevCount = e.currentTarget.getAttribute("data-count")
-
-      IncrementViewCount(entryId, prevCount)
-    }
-
     return (
       <>
         <SEO title="other" />
@@ -33,8 +25,6 @@ class OthersArticle extends React.Component {
               to={`/${node.slug}`}
               key={node.slug}
               data-id={node.contentful_id}
-              data-count={node.counter["counter"]}
-              onClick={handleClick}
             >
               <Post>
                 <PostImage>
@@ -75,10 +65,6 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          counter {
-            counter
-          }
-
           slug
           contentful_id
         }
