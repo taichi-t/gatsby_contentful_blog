@@ -3,7 +3,7 @@ import { css } from "styled-components"
 const syntaxHighlightingStyle = css`
   .gatsby-highlight {
     font-size: 1.6rem;
-    margin: 0 -3.2rem;
+    margin: 0 -1.6rem;
   }
 
   pre[class*="language-"] {
