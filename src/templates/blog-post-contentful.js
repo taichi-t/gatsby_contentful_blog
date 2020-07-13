@@ -175,17 +175,5 @@ export const pageQuery = graphql`
       createdAt(formatString: "YYYY.MM.DD")
       category
     }
-    allContentfulPost {
-      edges {
-        node {
-          title
-          slug
-          counter {
-            counter
-          }
-          contentful_id
-        }
-      }
-    }
   }
 `

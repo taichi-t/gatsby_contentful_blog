@@ -29,13 +29,6 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
-              post {
-                slug
-                title
-                createdAt(formatString: "YYYY.MM.DD")
-                contentful_id
-                category
-              }
             }
           }
         }
@@ -74,7 +67,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: TagsTemplate,
       context: {
         slug: tag.node.slug,
-        posts: tag.node.post,
       },
     })
   })
