@@ -9,7 +9,7 @@ import { breakPoints } from "../components/elements/elements"
 
 import SEO from "../components/seo"
 
-export const TagsTemplate = ({ data }) => {
+const TagsTemplate = ({ data }) => {
   const { slug, post } = data.contentfulTag
 
   return (
