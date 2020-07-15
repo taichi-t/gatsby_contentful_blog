@@ -14,7 +14,7 @@ export const Tech = () => {
             category
             createdAt(formatString: "YYYY.MM.DD")
             image {
-              fluid(maxWidth: 220, maxHeight: 220, quality: 50) {
+              fluid(maxWidth: 200, maxHeight: 200, quality: 50) {
                 ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
