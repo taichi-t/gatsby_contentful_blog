@@ -106,6 +106,8 @@ module.exports = {
             options: {
               maxWidth: 590,
               withWebp: true,
+              loading: "eager",
+              backgroundColor: "#dadada",
             },
           },
           `gatsby-remark-smartypants`,
@@ -113,13 +115,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaultQuality: 70,
-      },
-    },
-
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

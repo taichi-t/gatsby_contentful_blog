@@ -104,7 +104,7 @@ class BlogPostContentfulTemplate extends React.Component {
               </FooterContainer>
               <hr />
             </footer>
-            <RelatedArticles relatedPosts={relatedPosts} />
+            {relatedPosts && <RelatedArticles relatedPosts={relatedPosts} />}
           </article>
         </ArticleContaienr>
       </>
@@ -184,7 +184,7 @@ export const pageQuery = graphql`
         title
         image {
           fluid(maxWidth: 100, maxHeight: 100, quality: 50) {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
       }
