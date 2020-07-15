@@ -58,7 +58,9 @@ body {
   hr{
     margin:0;
   }
+
 `
+
 export const Wrapper = styled.div`
   max-width: 1080px;
   height: 100%;

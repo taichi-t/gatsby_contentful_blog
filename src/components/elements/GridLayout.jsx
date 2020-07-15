@@ -13,6 +13,7 @@ import SEO from "../seo"
 
 export const GridLayout = ({ data, title }) => {
   const posts = data.allContentfulPost.edges
+
   return (
     <>
       <SEO title={title} />
@@ -27,7 +28,13 @@ export const GridLayout = ({ data, title }) => {
           >
             <Post>
               <PostImage>
-                <Img fluid={node.image.fluid} width="100%" height="100%" />
+                <Img
+                  fluid={node.image.fluid}
+                  width="100%"
+                  height="100%"
+                  fadeIn={false}
+                  backgroundColor="#dadada"
+                />
               </PostImage>
               <PostText>
                 <header>

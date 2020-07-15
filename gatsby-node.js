@@ -13,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogTemplate = path.resolve(`./src/templates/blog-post-contentful.js`)
   const TagsTemplate = path.resolve(`./src/templates/tags.js`)
-  console.log(TagsTemplate)
+
   const result = await graphql(
     `
       {
@@ -43,6 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.posts.edges
+
   const tags = result.data.tags.edges
 
   posts.forEach(post => {

@@ -15,7 +15,7 @@ export const Tech = () => {
             createdAt(formatString: "YYYY.MM.DD")
             image {
               fluid(maxWidth: 220, maxHeight: 220, quality: 50) {
-                ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
             slug

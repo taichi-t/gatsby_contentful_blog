@@ -19,7 +19,13 @@ export const RelatedArticles = ({ relatedPosts }) => {
           <Grid container spacing={3}>
             <Hidden xsDown>
               <Grid item sm={3}>
-                <Image fluid={image.fluid} width="100%" height="100%" />
+                <Image
+                  fluid={image.fluid}
+                  width="100%"
+                  height="100%"
+                  fadeIn={false}
+                  backgroundColor="#dadada"
+                />
               </Grid>
             </Hidden>
             <Grid item sm={9} xs={12}>

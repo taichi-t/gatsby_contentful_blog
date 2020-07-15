@@ -13,7 +13,7 @@ const Aside = () => {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
           fixed(width: 100, height: 100) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -43,9 +43,10 @@ const Aside = () => {
             borderStyle: "solid",
             borderColor: "#1C2D5E",
           }}
-          loading="lazy"
+          fadeIn={false}
           width="100%"
           height="100%"
+          backgroundColor="#dadada"
         />
         <p>{data.site.siteMetadata.author}</p>
       </AvatarContainer>
