@@ -52,7 +52,7 @@ const RecomendationsContainer = styled.ul`
   -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   ${media.lessThan(breakPoints["huge"])`
-  width:50%;
+  width:48%;
   margin-top:0;
   -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);

@@ -6,6 +6,7 @@ import syntaxHighlightingStyle from "./post-style/syntaxHighlightingStyle"
 import { Button } from "../components/elements/elements"
 import media from "styled-media-query"
 import { breakPoints } from "../components/elements/elements"
+import RelatedArticles from "../components/elements/RelatedArticles"
 
 import SEO from "../components/seo"
 
@@ -19,6 +20,7 @@ class BlogPostContentfulTemplate extends React.Component {
   render() {
     const post = this.props.data.contentfulPost
     const link = this.props.location.href
+    const relatedPosts = post.relatedArticles
 
     const handleClick = e => {
       e.target.disabled = true
@@ -102,6 +104,7 @@ class BlogPostContentfulTemplate extends React.Component {
               </FooterContainer>
               <hr />
             </footer>
+            <RelatedArticles relatedPosts={relatedPosts} />
           </article>
         </ArticleContaienr>
       </>
@@ -125,7 +128,7 @@ const ArticleContaienr = styled.div`
   box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.25);
   ${media.lessThan(breakPoints["xsmall"])`
     font-size:3rem;
-    padding: 0 1.6rem;
+    padding: 1.6rem;
   `}
 `
 
@@ -174,16 +177,15 @@ export const pageQuery = graphql`
       }
       createdAt(formatString: "YYYY.MM.DD")
       category
-    }
-    allContentfulPost {
-      edges {
-        node {
-          title
-          slug
-          counter {
-            counter
+      relatedArticles {
+        createdAt(formatString: "YYYY.MM.DD")
+        contentful_id
+        slug
+        title
+        image {
+          fluid(maxWidth: 100, maxHeight: 100, quality: 50) {
+            ...GatsbyContentfulFluid
           }
-          contentful_id
         }
       }
     }

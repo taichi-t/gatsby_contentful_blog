@@ -11,6 +11,7 @@ import Recomendations from "./elements/Recomendations"
 import Header from "./elements/Header"
 import NavBar from "./elements/NavBar"
 import Footer from "./elements/Footer"
+import Tags from "./elements/Tags"
 
 export class Layout extends React.Component {
   render() {
@@ -36,7 +37,10 @@ export class Layout extends React.Component {
               <aside>
                 <AsideContainer>
                   <Aside />
+
                   <Recomendations articles={this.props.articles} />
+
+                  <Tags />
                 </AsideContainer>
               </aside>
             </Grid>
@@ -54,6 +58,8 @@ export class Layout extends React.Component {
 const AsideContainer = styled.div`
   ${media.lessThan(breakPoints["huge"])`
   display: flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
   `}
   ${media.lessThan(breakPoints["small"])`
   display: block;
