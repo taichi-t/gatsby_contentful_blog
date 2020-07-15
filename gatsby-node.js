@@ -44,12 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.posts.edges
   const tags = result.data.tags.edges
 
-  console.log(tags)
-
-  posts.forEach((post, index) => {
-    // const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    // const next = index === 0 ? null : posts[index - 1].node
-
+  posts.forEach(post => {
     createPage({
       path: `/${post.node.slug}`,
       component: blogTemplate,
@@ -58,10 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  tags.forEach((tag, index) => {
-    // const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    // const next = index === 0 ? null : posts[index - 1].node
-
+  tags.forEach(tag => {
     createPage({
       path: `/tags/${tag.node.slug}`,
       component: TagsTemplate,

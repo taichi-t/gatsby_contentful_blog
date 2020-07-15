@@ -37,7 +37,7 @@ const Aside = () => {
       <AvatarContainer>
         <Image
           fixed={data.avatar.childImageSharp.fixed}
-          alt="data.site.siteMetadata.author"
+          alt={data.site.siteMetadata.author}
           style={{
             borderRadius: 50,
             borderStyle: "solid",
@@ -108,6 +108,7 @@ const Aside = () => {
   )
 }
 const AsideContainer = styled.div`
+  flex-grow: 1;
   font-size: 1.6rem;
   padding: 1.6rem;
   border: solid 2px #1c2d5e;
@@ -117,8 +118,7 @@ const AsideContainer = styled.div`
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
   ${media.lessThan(breakPoints["huge"])`
   text-align:center;
-  width:50%;
-  margin-right:3rem;
+  margin-bottom:2.4rem;
   -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.5);
