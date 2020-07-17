@@ -123,11 +123,12 @@ module.exports = {
         short_name: `バンハンター`,
         start_url: `/`,
         background_color: `#fef9e4`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        theme_color: `#fef9e4`,
+        display: `standalone`,
         icon: `content/assets/icon.png`,
       },
     },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
 
     {
