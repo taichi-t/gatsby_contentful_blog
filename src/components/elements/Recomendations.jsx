@@ -17,9 +17,6 @@ const Recomendations = () => {
           node {
             title
             slug
-            counter {
-              counter
-            }
           }
         }
       }
