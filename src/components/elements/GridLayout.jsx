@@ -19,8 +19,8 @@ export const GridLayout = ({ data, title }) => {
       const title = node.title || node.slug
 
       return (
-        <Link to={`/${node.slug}`} key={node.slug} data-id={node.contentful_id}>
-          <Post>
+        <Post key={node.slug}>
+          <Link to={`/${node.slug}`}>
             <PostImage>
               <Img
                 fluid={node.image.fluid}
@@ -41,8 +41,8 @@ export const GridLayout = ({ data, title }) => {
                 </PostDiscription>
               </section>
             </PostText>
-          </Post>
-        </Link>
+          </Link>
+        </Post>
       )
     })
 
