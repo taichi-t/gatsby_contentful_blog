@@ -11,7 +11,6 @@ import RelatedArticles from "../components/elements/RelatedArticles"
 import SEO from "../components/seo"
 
 const BlogPostContentfulTemplate = ({ data, location }) => {
-  console.log(location)
   const [copied, setCopied] = useState(false)
   const post = data.contentfulPost
   const link = location.href

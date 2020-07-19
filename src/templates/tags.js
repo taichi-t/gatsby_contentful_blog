@@ -11,7 +11,6 @@ import SEO from "../components/seo"
 
 const TagsTemplate = ({ data }) => {
   const { slug, post } = data.contentfulTag
-  console.log(post)
 
   return (
     <>
