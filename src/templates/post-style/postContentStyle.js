@@ -37,8 +37,11 @@ const postContentStyle = css`
   p {
     font-size: 1.6rem;
     margin-top: 2.4rem;
+    margin-bottom: 1rem;
   }
   strong {
+    font-size: 1.6rem;
+    margin-top: 2.4rem;
     font-weight: 600;
   }
   blockquote {
@@ -50,14 +53,14 @@ const postContentStyle = css`
   img {
     width: 100%;
     height: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border: 1px solid #bbc0cf;
   }
   ol {
     padding-left: 1em;
   }
-  input[type="checkbox" i]:disabled {
-    background-color: #000;
+  li {
+    font-size: 1.6rem;
   }
 `
 
