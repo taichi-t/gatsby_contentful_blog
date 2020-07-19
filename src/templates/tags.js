@@ -15,35 +15,37 @@ const TagsTemplate = ({ data }) => {
   return (
     <>
       <SEO title={`#${slug}`} />
-      {post ? (
-        post.map(post => {
-          const title = post.title
+      <ul>
+        {post ? (
+          post.map(post => {
+            const title = post.title
 
-          return (
-            <Link
-              to={`/${post.slug}`}
-              key={post.slug}
-              data-id={post.contentful_id}
-            >
-              <Post>
-                <PostText>
-                  <header>
-                    <PostTitle>{title}</PostTitle>
-                  </header>
-                  <section>
-                    <PostDiscription>
-                      <p>{post.createdAt}</p>
-                      <p>#{post.category}</p>
-                    </PostDiscription>
-                  </section>
-                </PostText>
-              </Post>
-            </Link>
-          )
-        })
-      ) : (
-        <p>nothing</p>
-      )}
+            return (
+              <Item key={post.slug}>
+                <Link to={`/${post.slug}`}>
+                  <Post>
+                    <PostText>
+                      <header>
+                        <PostTitle>{title}</PostTitle>
+                      </header>
+                      <section>
+                        <PostDiscription>
+                          <p>{post.createdAt}</p>
+                          <p>#{post.category}</p>
+                        </PostDiscription>
+                      </section>
+                    </PostText>
+                  </Post>
+                </Link>
+              </Item>
+            )
+          })
+        ) : (
+          <li>
+            <p>記事がまだありませんm(_ _　)m</p>
+          </li>
+        )}
+      </ul>
     </>
   )
 }
@@ -68,7 +70,7 @@ export const posts = graphql`
 const Post = styled.div`
   display: flex;
   padding: 2rem;
-  margin-bottom: 3.2rem;
+
   border: 2px solid #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
@@ -84,6 +86,10 @@ const Post = styled.div`
   display:block;
   padding:2rem;
   `}
+`
+
+const Item = styled.li`
+  margin-bottom: 3.2rem;
 `
 
 const PostText = styled.div`
