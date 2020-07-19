@@ -46,10 +46,12 @@ export const GridLayout = ({ data, title }) => {
       )
     })
 
+  console.log(posts)
+
   return (
     <>
       <SEO title={title} />
-      {posts ? elements : `記事がまだありませんm(_ _　)m`}
+      {posts.length === 0 ? `記事がまだありませんm(_ _　)m` : elements}
     </>
   )
 }
