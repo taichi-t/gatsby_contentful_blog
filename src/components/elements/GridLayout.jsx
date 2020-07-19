@@ -46,8 +46,6 @@ export const GridLayout = ({ data, title }) => {
       )
     })
 
-  console.log(posts)
-
   return (
     <>
       <SEO title={title} />
