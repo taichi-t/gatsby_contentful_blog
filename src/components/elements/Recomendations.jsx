@@ -26,19 +26,23 @@ const Recomendations = () => {
   return (
     <RecomendationsContainer>
       <Title>人気の記事</Title>
-      {allContentfulPost &&
-        allContentfulPost.edges.map(({ node }, index) => {
-          const title = node.title || node.slug
-          return (
-            <Link to={`/${node.slug}`} key={index} data-id={node.contentful_id}>
-              <RecomendationsList key={index}>{title}</RecomendationsList>
-            </Link>
-          )
-        })}
+      <ul>
+        {allContentfulPost &&
+          allContentfulPost.edges.map(({ node }, index) => {
+            const title = node.title || node.slug
+            return (
+              <li key={node.slug}>
+                <Link to={`/${node.slug}`}>
+                  <RecomendationsTitle>{title}</RecomendationsTitle>
+                </Link>
+              </li>
+            )
+          })}
+      </ul>
     </RecomendationsContainer>
   )
 }
-const RecomendationsContainer = styled.ul`
+const RecomendationsContainer = styled.div`
   font-size: 1.6rem;
   font-weight: 700;
   margin-top: 6rem;
@@ -60,7 +64,7 @@ const RecomendationsContainer = styled.ul`
   margin-top: 2.4rem;
   `}
 `
-const RecomendationsList = styled.li`
+const RecomendationsTitle = styled.p`
   padding: 2.4rem 1.6rem;
   border-bottom: 1px solid #bbc0cf;
 `
