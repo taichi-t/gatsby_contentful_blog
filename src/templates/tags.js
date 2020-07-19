@@ -11,10 +11,15 @@ import SEO from "../components/seo"
 
 const TagsTemplate = ({ data }) => {
   const { slug, post } = data.contentfulTag
+  console.log(post)
 
   return (
     <>
-      <SEO title={`#${slug}`} />
+      <SEO
+        title={`#${slug}`}
+        description={`　#${slug}　に関連する記事が${post.length +
+          1}つ見つかりました。`}
+      />
       <ul>
         {post ? (
           post.map(post => {

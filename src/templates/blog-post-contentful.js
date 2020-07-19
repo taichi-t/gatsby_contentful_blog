@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import postContentStyle from "./post-style/postContentStyle"
@@ -10,106 +10,100 @@ import RelatedArticles from "../components/elements/RelatedArticles"
 
 import SEO from "../components/seo"
 
-class BlogPostContentfulTemplate extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      copied: false,
-    }
+const BlogPostContentfulTemplate = ({ data, location }) => {
+  console.log(location)
+  const [copied, setCopied] = useState(false)
+  const post = data.contentfulPost
+  const link = location.href
+  const relatedPosts = post.relatedArticles
+
+  const handleClick = e => {
+    e.target.disabled = true
+    setCopied(true)
+    let elem = document.createElement("textarea")
+    elem.id = "textarea"
+    elem.innerText = link
+    elem.readOnly = "readOnly"
+    elem.style = "right:100vh"
+    document.body.append(elem)
+    elem.select()
+    const range = document.createRange()
+    range.selectNodeContents(elem)
+    const sel = window.getSelection()
+    sel.removeAllRanges()
+    sel.addRange(range)
+    elem.setSelectionRange(0, 999999)
+    document.execCommand("copy")
+    elem.remove()
+    setTimeout(() => {
+      setCopied(false)
+    }, 1500)
+    e.target.disabled = false
   }
-  render() {
-    const post = this.props.data.contentfulPost
-    const link = this.props.location.href
-    const relatedPosts = post.relatedArticles
 
-    const handleClick = e => {
-      e.target.disabled = true
-      this.setState({ copied: true })
-      let elem = document.createElement("textarea")
-      elem.id = "textarea"
-      elem.innerText = link
-      elem.readOnly = "readOnly"
-      elem.style = "right:100vh"
-      document.body.append(elem)
-      elem.select()
-      const range = document.createRange()
-      range.selectNodeContents(elem)
-      const sel = window.getSelection()
-      sel.removeAllRanges()
-      sel.addRange(range)
-      elem.setSelectionRange(0, 999999)
-      document.execCommand("copy")
-      elem.remove()
-      setTimeout(() => {
-        this.setState({ copied: false })
-      }, 1500)
-      e.target.disabled = false
-    }
+  return (
+    <>
+      <SEO title={post.title} description={post.subtitle} />
+      <ArticleContaienr>
+        <article>
+          <header>
+            <HeaderContainer>
+              <PostTitle>{post.title}</PostTitle>
+              <PostDiscription>{post.createdAt}</PostDiscription>
+              <PostDiscription>#{post.category}</PostDiscription>
+            </HeaderContainer>
+          </header>
 
-    return (
-      <>
-        <SEO title={post.title} description={post.subtitle} />
-        <ArticleContaienr>
-          <article>
-            <header>
-              <HeaderContainer>
-                <PostTitle>{post.title}</PostTitle>
-                <PostDiscription>{post.createdAt}</PostDiscription>
-                <PostDiscription>#{post.category}</PostDiscription>
-              </HeaderContainer>
-            </header>
+          <section>
+            <PostContent
+              dangerouslySetInnerHTML={{
+                __html: post.longText.childMarkdownRemark.html,
+              }}
+            ></PostContent>
+          </section>
+          <footer>
+            <FooterContainer>
+              <Button
+                color={"#ffffff"}
+                bgc={"#808080"}
+                shadow={"true"}
+                transform={"true"}
+                border={"true"}
+                style={{ marginRight: "2.4rem", cursor: "pointer" }}
+                onClick={handleClick}
+                copied={copied}
+                id="link"
+                fontSize={1.6}
+              >
+                リンク
+              </Button>
 
-            <section>
-              <PostContent
-                dangerouslySetInnerHTML={{
-                  __html: post.longText.childMarkdownRemark.html,
-                }}
-              ></PostContent>
-            </section>
-            <footer>
-              <FooterContainer>
+              <a
+                href={`http://twitter.com/share?url=${link}&text=${post.title}`}
+                data-lang="ja"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   color={"#ffffff"}
-                  bgc={"#808080"}
+                  bgc={"#00ACEE"}
                   shadow={"true"}
                   transform={"true"}
                   border={"true"}
-                  style={{ marginRight: "2.4rem", cursor: "pointer" }}
-                  onClick={handleClick}
-                  copied={this.state.copied}
-                  id="link"
+                  id="share"
                   fontSize={1.6}
                 >
-                  リンク
+                  ツイッターで共有
                 </Button>
-
-                <a
-                  href={`http://twitter.com/share?url=${link}&text=${post.title}`}
-                  data-lang="ja"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    color={"#ffffff"}
-                    bgc={"#00ACEE"}
-                    shadow={"true"}
-                    transform={"true"}
-                    border={"true"}
-                    id="share"
-                    fontSize={1.6}
-                  >
-                    ツイッターで共有
-                  </Button>
-                </a>
-              </FooterContainer>
-              <hr />
-            </footer>
-            {relatedPosts && <RelatedArticles relatedPosts={relatedPosts} />}
-          </article>
-        </ArticleContaienr>
-      </>
-    )
-  }
+              </a>
+            </FooterContainer>
+            <hr />
+          </footer>
+          {relatedPosts && <RelatedArticles relatedPosts={relatedPosts} />}
+        </article>
+      </ArticleContaienr>
+    </>
+  )
 }
 
 const HeaderContainer = styled.div`
