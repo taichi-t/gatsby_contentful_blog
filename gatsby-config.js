@@ -10,7 +10,7 @@ module.exports = {
     author: `盆地デベロッパー`,
     description: `バンクーバーのウェブ系カレッジで一から ウェブを学ぶ人。
     現地の生活や、テック系や、 趣味を発信しようと思います`,
-    siteUrl: `https://canajapa.com`,
+    siteUrl: `https://www.canajapa.com/`,
     social: {
       twitter: `EndTaichi`,
       instagram: `nabagibasan`,
@@ -18,6 +18,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
