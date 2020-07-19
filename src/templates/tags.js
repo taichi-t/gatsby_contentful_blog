@@ -17,9 +17,9 @@ const TagsTemplate = ({ data }) => {
       <SEO
         title={`#${slug}`}
         description={
-          post && post.length === 0
+          post === null || undefined
             ? ` #${slug} に関する記事が見つかりません。`
-            : ` #${slug} に関する記事が${post.length}つ見つかりました。`
+            : ` #${slug} に関する記事が ${post.length} つ見つかりました。`
         }
       />
       <ul>
