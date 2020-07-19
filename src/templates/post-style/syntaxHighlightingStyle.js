@@ -22,6 +22,7 @@ const syntaxHighlightingStyle = css`
 
   pre[class*="language-"] code {
     font-family: "Source Code Pro", "monospace", sans-serif !important;
+    margin-top: 2rem;
     color: #e3e3e3;
     text-shadow: none;
     line-height: 1.8;

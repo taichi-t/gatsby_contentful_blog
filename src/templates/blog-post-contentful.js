@@ -139,7 +139,7 @@ const PostContent = styled.div`
 `
 
 const PostTitle = styled.h1`
-  font-size: 4.8rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 2.4rem;
   ${media.lessThan(breakPoints["xsmall"])`

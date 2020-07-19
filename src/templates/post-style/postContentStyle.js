@@ -5,29 +5,26 @@ import { breakPoints } from "../../components/elements/elements"
 const postContentStyle = css`
   line-height: 1.9;
   h1 {
-    line-height: 1.9;
-    font-size: 4.8rem;
+    font-size: 3rem;
     margin: 5.6rem 0 2.4rem 0;
     border-bottom: solid 1px #bbc0cf;
     ${media.lessThan(breakPoints["xsmall"])`
-    font-size:3.2rem;
+    font-size:2.8rem;
   `}
   }
   h2 {
-    line-height: 1.9;
-    font-size: 4rem;
+    font-size: 2.8rem;
     margin: 4.8rem 0 2.4rem 0;
     border-bottom: solid 1px #bbc0cf;
     ${media.lessThan(breakPoints["xsmall"])`
-    font-size:3rem;
+    font-size:2.4rem;
   `}
   }
   h3 {
-    line-height: 1.9;
-    font-size: 3.2rem;
+    font-size: 2.4rem;
     margin: 4rem 0 2.4rem 0;
     ${media.lessThan(breakPoints["xsmall"])`
-    font-size:2.6rem;
+    font-size:2rem;
   `}
   }
   a {
@@ -39,8 +36,7 @@ const postContentStyle = css`
   }
   p {
     font-size: 1.6rem;
-    font-weight: 200;
-    margin: 2.4rem 0;
+    margin-top: 2.4rem;
   }
   strong {
     font-weight: 600;
@@ -51,10 +47,17 @@ const postContentStyle = css`
     color: #777777;
     border-left: 5px solid #ddd;
   }
-
   img {
     width: 100%;
     height: 100%;
+    margin-top: 2rem;
+    border: 1px solid #bbc0cf;
+  }
+  ol {
+    padding-left: 1em;
+  }
+  input[type="checkbox" i]:disabled {
+    background-color: #000;
   }
 `
 

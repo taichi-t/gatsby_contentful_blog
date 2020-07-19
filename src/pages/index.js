@@ -19,7 +19,6 @@ export const Index = () => {
               }
             }
             slug
-
             contentful_id
           }
         }
