@@ -195,7 +195,6 @@ export const InstaButton = styled.div`
 
 export const Post = styled.div`
   display: flex;
-  margin-bottom: 3.2rem;
   border: 2px solid #1c2d5e;
   background-color: #fffdf7;
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);

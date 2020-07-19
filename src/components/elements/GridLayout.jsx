@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
 //elements
 import { Post } from "./elements"
@@ -19,39 +20,46 @@ export const GridLayout = ({ data, title }) => {
       const title = node.title || node.slug
 
       return (
-        <Post key={node.slug}>
+        <Item key={node.slug}>
           <Link to={`/${node.slug}`}>
-            <PostImage>
-              <Img
-                fluid={node.image.fluid}
-                width="100%"
-                height="100%"
-                fadeIn={false}
-                backgroundColor="#dadada"
-              />
-            </PostImage>
-            <PostText>
-              <header>
-                <PostTitle>{title}</PostTitle>
-              </header>
-              <section>
-                <PostDiscription>
-                  <p>{node.createdAt}</p>
-                  <p>#{node.category}</p>
-                </PostDiscription>
-              </section>
-            </PostText>
+            <Post>
+              <PostImage>
+                <Img
+                  fluid={node.image.fluid}
+                  width="100%"
+                  height="100%"
+                  fadeIn={false}
+                  backgroundColor="#dadada"
+                />
+              </PostImage>
+              <PostText>
+                <header>
+                  <PostTitle>{title}</PostTitle>
+                </header>
+                <section>
+                  <PostDiscription>
+                    <p>{node.createdAt}</p>
+                    <p>#{node.category}</p>
+                  </PostDiscription>
+                </section>
+              </PostText>
+            </Post>
           </Link>
-        </Post>
+        </Item>
       )
     })
 
   return (
     <>
       <SEO title={title} />
-      {posts.length === 0 ? `記事がまだありませんm(_ _　)m` : elements}
+      <ul>{posts.length === 0 ? `記事がまだありませんm(_ _　)m` : elements}</ul>
     </>
   )
 }
 
 export default GridLayout
+
+const Item = styled.li`
+  list-style: none;
+  margin-bottom: 3.2rem;
+`
