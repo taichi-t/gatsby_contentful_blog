@@ -45,6 +45,7 @@ const postContentStyle = css`
     font-weight: 600;
   }
   blockquote {
+    word-break: break-word;
     margin: 0;
     padding: 0 1.45rem;
     color: #777777;
