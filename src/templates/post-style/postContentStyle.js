@@ -63,6 +63,7 @@ const postContentStyle = css`
   ul {
     list-style: outside;
     padding-left: 1em;
+    margin: 2rem 0 1rem 0;
   }
   li {
     font-size: 1.6rem;
