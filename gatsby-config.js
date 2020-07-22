@@ -53,7 +53,14 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-code-titles`,
-          `gatsby-remark-emoji-unicode`,
+          {
+            resolve: "gatsby-remark-emojis",
+            options: {
+              active: true,
+              class: "emoji-icon",
+              escapeCharacter: "#", // (default: '')
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

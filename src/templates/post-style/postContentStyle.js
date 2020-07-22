@@ -57,6 +57,9 @@ const postContentStyle = css`
     margin-top: 1rem;
     border: 1px solid #bbc0cf;
   }
+  .emoji-icon {
+    border: none;
+  }
   ol {
     padding-left: 1em;
   }
