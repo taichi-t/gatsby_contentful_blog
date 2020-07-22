@@ -42,7 +42,7 @@ const syntaxHighlightingStyle = css`
   }
 
   .language-text {
-    word-break: break-all;
+    word-break: break-word;
     border-radius: 0;
     text-shadow: none;
     color: #e3e3e3;

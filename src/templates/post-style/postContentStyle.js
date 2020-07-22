@@ -59,6 +59,10 @@ const postContentStyle = css`
   }
   .emoji-icon {
     border: none;
+    display: inline-block;
+    margin-top: 0;
+    width: 2.4rem;
+    vertical-align: middle;
   }
   ol {
     padding-left: 1em;
