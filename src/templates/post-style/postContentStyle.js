@@ -4,16 +4,12 @@ import { breakPoints } from "../../components/elements/elements"
 
 const postContentStyle = css`
   line-height: 1.9;
-  h1 {
-    font-size: 3rem;
-    margin: 5.6rem 0 2.4rem 0;
-    border-bottom: solid 1px #bbc0cf;
-    ${media.lessThan(breakPoints["xsmall"])`
-    font-size:2.8rem;
+  font-size:2rem;
+  ${media.lessThan(breakPoints["xsmall"])`
+    font-size:1.6rem;
   `}
-  }
   h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     margin: 4.8rem 0 2.4rem 0;
     border-bottom: solid 1px #bbc0cf;
     ${media.lessThan(breakPoints["xsmall"])`
@@ -21,7 +17,7 @@ const postContentStyle = css`
   `}
   }
   h3 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     margin: 4rem 0 2.4rem 0;
     ${media.lessThan(breakPoints["xsmall"])`
     font-size:2rem;
@@ -35,15 +31,10 @@ const postContentStyle = css`
     text-decoration: underline;
   }
   p {
-    font-size: 1.6rem;
     margin-top: 2.4rem;
     margin-bottom: 1rem;
   }
-  strong {
-    font-size: 1.6rem;
-    margin-top: 2.4rem;
-    font-weight: 600;
-  }
+
   blockquote {
     word-break: break-word;
     margin: 0;
@@ -66,15 +57,17 @@ const postContentStyle = css`
   }
   ol {
     padding-left: 1em;
+    margin: 2rem 0 1rem 0;
   }
   ul {
     list-style: outside;
     padding-left: 1em;
     margin: 2rem 0 1rem 0;
   }
-  li {
-    font-size: 1.6rem;
+  li{
+    margin: 2rem 0 1rem 0;
   }
+  
 `
 
 export default postContentStyle

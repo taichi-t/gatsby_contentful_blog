@@ -12,6 +12,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Open+Sans:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
       </head>
       <body {...props.bodyAttributes} style={{ backgroundColor: "#fef9e4" }}>
         {props.preBodyComponents}

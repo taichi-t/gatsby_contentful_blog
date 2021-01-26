@@ -14,6 +14,7 @@ export const breakPoints = {
 
 export const GlobalStyle = createGlobalStyle`
 
+
 *{
   box-sizing:border-box;
 }
@@ -25,7 +26,7 @@ html{
 body {
   overflow-x: hidden;
   color:#000000;
-  font-family:'Noto Sans JP', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size:1.6rem;
   line-height:1.45
   }
@@ -34,15 +35,16 @@ body {
     color:inherit;
     text-decoration:none
   }
-  h3{
-    margin: 0;
-  }
-  h1{
-    margin: 0;
-  }
-  h2{
-    margin:0;
-  }
+  h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight:700;
+      margin:0;
+    }
   p{
     margin: 0;
   }

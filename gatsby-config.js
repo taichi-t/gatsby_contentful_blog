@@ -18,23 +18,9 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Noto Sans JP`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Source Code Pro`,
-            variants: [`400`],
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
