@@ -43,12 +43,11 @@ const syntaxHighlightingStyle = css`
 
   .language-text {
     word-break: break-word;
-    border-radius: 0;
     text-shadow: none;
-    color: #e3e3e3;
-    padding: 0.2rem 0.5rem;
-    margin: 0 0.3rem;
-    background-color: #364549;
+    color: inherit;
+    /* padding: 0.2rem 0.5rem; */
+    margin: 0 0.5rem;
+    background-color: #eee;
   }
 `
 
