@@ -30,7 +30,6 @@ body {
   line-height:1.45
   }
 
-
   a{
     color:inherit;
     text-decoration:none
@@ -62,7 +61,7 @@ body {
 `
 
 export const Wrapper = styled.div`
-  max-width: 1080px;
+  max-width: 1200px;
   height: 100%;
   padding: 1rem;
   padding-top: ${props => props.top}rem;
