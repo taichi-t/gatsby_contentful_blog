@@ -42,7 +42,7 @@ const BlogPostContentfulTemplate = ({ data, location }) => {
 
   return (
     <>
-      <SEO title={post.title} description={post.subtitle} />
+      <SEO title={post.title} description={post.subtitle} imageUrl={post.image.fluid.src} />
       <ArticleContaienr>
         <article>
           <header>
@@ -166,6 +166,11 @@ export const pageQuery = graphql`
       longText {
         childMarkdownRemark {
           html
+        }
+      }
+      image {
+        fluid(maxWidth: 200, maxHeight: 200, quality: 50) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       createdAt(formatString: "YYYY.MM.DD")

@@ -16,6 +16,7 @@ module.exports = {
       instagram: `nabagibasan`,
       github: `taichi-t`,
     },
+    icon: "icos/512x512.png"
   },
   plugins: [
     `gatsby-plugin-preload-fonts`,
