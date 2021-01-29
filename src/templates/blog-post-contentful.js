@@ -16,8 +16,6 @@ const BlogPostContentfulTemplate = ({ data, location }) => {
   const link = location.href
   const relatedPosts = post.relatedArticles
 
-  console.log(link)
-
   const handleClick = e => {
     e.target.disabled = true
     setCopied(true)
