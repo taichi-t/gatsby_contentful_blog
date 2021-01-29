@@ -16,6 +16,8 @@ const BlogPostContentfulTemplate = ({ data, location }) => {
   const link = location.href
   const relatedPosts = post.relatedArticles
 
+  console.log(link)
+
   const handleClick = e => {
     e.target.disabled = true
     setCopied(true)
@@ -42,7 +44,7 @@ const BlogPostContentfulTemplate = ({ data, location }) => {
 
   return (
     <>
-      <SEO title={post.title} description={post.subtitle} imageUrl={post.image.fluid.src} />
+      <SEO title={post.title} description={post.subtitle} imageUrl={`https://${post.image.fluid.src}`} />
       <ArticleContaienr>
         <article>
           <header>
