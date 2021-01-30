@@ -51,6 +51,9 @@ const postContentStyle = css`
   img + em {
     text-align: center;
     color: #777777;
+    font-size:1.6rem;
+    display:flex;
+    justify-content:center
   }
   .emoji-icon {
     border: none;
