@@ -4,7 +4,7 @@ import { breakPoints } from "../../components/elements/elements"
 
 const postContentStyle = css`
   line-height: 1.9;
-  font-size:2rem;
+  font-size: 2rem;
   ${media.lessThan(breakPoints["xsmall"])`
     font-size:1.6rem;
   `}
@@ -48,6 +48,10 @@ const postContentStyle = css`
     margin-top: 1rem;
     border: 1px solid #bbc0cf;
   }
+  img + em {
+    text-align: center;
+    color: #777777;
+  }
   .emoji-icon {
     border: none;
     display: inline-block;
@@ -64,10 +68,9 @@ const postContentStyle = css`
     padding-left: 1em;
     margin: 2rem 0 1rem 0;
   }
-  li{
+  li {
     margin: 2rem 0 1rem 0;
   }
-  
 `
 
 export default postContentStyle

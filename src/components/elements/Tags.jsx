@@ -80,6 +80,7 @@ const TagsList = styled.div`
 const TagsContainer = styled.ul`
   color: #000;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   justify-content: space-evenly;
   padding: 1.6rem;
