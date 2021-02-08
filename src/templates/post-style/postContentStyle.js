@@ -3,7 +3,7 @@ import media from "styled-media-query"
 import { breakPoints } from "../../components/elements/elements"
 
 const postContentStyle = css`
-  line-height: 1.9;
+  line-height: 1.7;
   font-size: 2rem;
   ${media.lessThan(breakPoints["xsmall"])`
     font-size:1.6rem;
